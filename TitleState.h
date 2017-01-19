@@ -3,7 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "State.h"
-#include "UIBackground.h"
 
 class TitleState : public State
 {
