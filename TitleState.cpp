@@ -3,21 +3,22 @@
 // Calls State constructor and initialize id as "title"
 TitleState::TitleState() : State("title")
 {
+	// TEST //
+	UIBackground* bg = new UIBackground("background", 0);
+	uiholder.addUIElement(bg);
+	//////////
 }
 
 // Updates the state
 void TitleState::update()
 {
-
+	uiholder.update();
 }
 
 // Draws the state
 void TitleState::draw(sf::RenderWindow* window)
 {
-	// Temp rect fill for debug purpose
-	sf::RectangleShape tmp = sf::RectangleShape(sf::Vector2f(800, 600));
-	tmp.setFillColor(sf::Color(100, 200, 100));
-	window->draw(tmp);
+	uiholder.draw(window);
 }
 
 TitleState::~TitleState()
