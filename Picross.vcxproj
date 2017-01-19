@@ -73,10 +73,16 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateManager.cpp" />
+    <ClCompile Include="TitleState.cpp" />
+    <ClCompile Include="UIElement.cpp" />
+    <ClCompile Include="UIHolder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
+    <ClInclude Include="TitleState.h" />
+    <ClInclude Include="UIElement.h" />
+    <ClInclude Include="UIHolder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
