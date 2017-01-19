@@ -4,8 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "State.h"
 
-class TitleState :
-	public State
+class TitleState : public State
 {
 public:
 	TitleState();

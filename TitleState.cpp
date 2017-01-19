@@ -1,17 +1,23 @@
 #include "TitleState.h"
 
+// Calls State constructor and initialize id as "title"
 TitleState::TitleState() : State("title")
 {
 }
 
-void State::update()
+// Updates the state
+void TitleState::update()
 {
 
 }
 
-void State::draw(sf::RenderWindow* window)
+// Draws the state
+void TitleState::draw(sf::RenderWindow* window)
 {
-
+	// Temp rect fill for debug purpose
+	sf::RectangleShape tmp = sf::RectangleShape(sf::Vector2f(800, 600));
+	tmp.setFillColor(sf::Color(100, 200, 100));
+	window->draw(tmp);
 }
 
 TitleState::~TitleState()
