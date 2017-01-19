@@ -47,7 +47,7 @@ bool StateManager::hasState(std::string _id)
 		// Set return value to false
 		valid = false;
 		// Log the error
-		std::cerr << "Out of Range error:" << oor.what() << "\n";
+		std::cerr << "StateManager Out of Range error: " << oor.what() << "\n";
 	}
 
 	return valid;

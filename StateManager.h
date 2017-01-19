@@ -7,7 +7,7 @@
 #include "State.h"
 
 /*
-This class holds several states, updating and drawing the current one and handling the switch to another state.
+This class holds several states, updating and drawing the current one and handling the switch between them.
 */
 
 class StateManager
