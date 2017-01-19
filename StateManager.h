@@ -14,7 +14,7 @@ class StateManager
 {
 private:
 	std::map<std::string, State*> states;
-	std::string currentState;
+	std::string currentStateId;
 
 	bool hasState(std::string _id);
 public:
@@ -23,6 +23,7 @@ public:
 	void update();
 	void draw(sf::RenderWindow* window);
 	void addState(State* _state);
+	void setCurrentStateId(std::string _id);
 
 	~StateManager();
 };

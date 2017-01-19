@@ -3,35 +3,39 @@
 StateManager::StateManager()
 {
 	// Initialize current state to an empty string
-	currentState = "";
+	currentStateId = "";
 }
 
+// Updates current state if valid
 void StateManager::update()
 {
 	// If the current state is valid
-	if (hasState(currentState))
+	if (hasState(currentStateId))
 	{
 		// Update it
-		states.at(currentState)->update();
+		states.at(currentStateId)->update();
 	}
 }
 
+// Draw current state id valid
 void StateManager::draw(sf::RenderWindow* window)
 {
 	// If the current state is valid
-	if (hasState(currentState))
+	if (hasState(currentStateId))
 	{
 		// Draw it
-		states.at(currentState)->draw(window);
+		states.at(currentStateId)->draw(window);
 	}
 }
 
+// Adds new state to the map
 void StateManager::addState(State* _state)
 {
 	// Insert a new state to the map, whith its id as string key
 	states.insert(std::pair<std::string, State*>(_state->getId(), _state));
 }
 
+// Checks if a specific key exists in the map, logs error if not
 bool StateManager::hasState(std::string _id)
 {
 	// Declare return value as strue;
@@ -51,6 +55,17 @@ bool StateManager::hasState(std::string _id)
 	}
 
 	return valid;
+}
+
+// Sets the current state id if valid
+void StateManager::setCurrentStateId(std::string _id)
+{
+	// Test if map contains that state
+	if (hasState(_id))
+	{
+		// Set new currentStateId
+		currentStateId = _id;
+	}
 }
 
 StateManager::~StateManager()
