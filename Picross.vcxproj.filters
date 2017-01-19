@@ -25,6 +25,12 @@
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{04b42b97-0537-4675-aa86-77b6ddadde38}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Statics">
+      <UniqueIdentifier>{e513099c-0858-429a-a358-39329e74a50b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Statics">
+      <UniqueIdentifier>{b5f3dff0-81bb-41cc-b421-ca04369246fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,7 +49,13 @@
       <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="UIHolder.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIBackground.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files\Statics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,7 +72,13 @@
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="UIHolder.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIBackground.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\Statics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
