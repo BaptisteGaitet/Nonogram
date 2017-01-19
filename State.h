@@ -3,7 +3,7 @@
 
 #include <string>
 #include <SFML\Graphics.hpp>
-
+#include "UIHolder.h"
 /*
 This class must be inherited to represent a single independent screen in the game.
 */
@@ -13,6 +13,8 @@ class State
 private:
 	std::string id;
 	std::string nextStateId;
+protected:
+	UIHolder uiholder;
 public:
 	State(std::string _id);
 
