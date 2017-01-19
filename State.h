@@ -16,12 +16,13 @@ private:
 public:
 	State(std::string _id);
 
-	virtual void update() = 0;
-	virtual void draw(sf::RenderWindow* window) = 0;
 	std::string getNextStateId();
 	void setNextStateId(std::string _nextStateId);
 	void resetNextStateId();
 	std::string getId();
+
+	virtual void update() = 0;
+	virtual void draw(sf::RenderWindow* window) = 0;
 
 	~State();
 };
