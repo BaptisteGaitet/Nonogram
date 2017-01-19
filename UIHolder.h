@@ -17,7 +17,7 @@ public:
 
 	void draw(sf::RenderWindow* window);
 	void update();
-	void addUIElement(UIElement* _uielement, int _drawOrder);
+	void addUIElement(UIElement* _uielement);
 	UIElement* getUIElement(std::string _id);
 	bool hasUIElement(std::string _id);
 	void sortDrawOrderVector();

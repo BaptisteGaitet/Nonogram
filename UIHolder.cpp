@@ -20,7 +20,7 @@ void UIHolder::draw(sf::RenderWindow* window)
 	}
 }
 
-void UIHolder::addUIElement(UIElement* _uielement, int _drawOrder)
+void UIHolder::addUIElement(UIElement* _uielement)
 {
 	elements.insert(std::pair<std::string, UIElement*>(_uielement->getId(), _uielement));
 	drawingQueue.push_back(_uielement);
@@ -41,7 +41,7 @@ UIElement* UIHolder::getUIElement(std::string _id)
 
 bool UIHolder::hasUIElement(std::string _id)
 {
-	// Declare return value as strue;
+	// Declare return value as true;
 	bool valid = true;
 
 	// Try to access the corresponding UIElement
