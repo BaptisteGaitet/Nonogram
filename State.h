@@ -4,6 +4,10 @@
 #include <string>
 #include <SFML\Graphics.hpp>
 
+/*
+This class must be inherited to represent a single independent screen in the game.
+*/
+
 class State
 {
 private:
@@ -17,6 +21,7 @@ public:
 	std::string getNextStateId();
 	void setNextStateId(std::string _nextStateId);
 	void resetNextStateId();
+	std::string getId();
 
 	~State();
 };

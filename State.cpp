@@ -1,9 +1,5 @@
 #include "State.h"
 
-/*
-This class must be inherited to represent a single independent screen in the game.
-*/
-
 // Creates the state with a corresponding ID
 State::State(std::string _id)
 {
@@ -27,6 +23,11 @@ void State::setNextStateId(std::string _nextStateId)
 void State::resetNextStateId()
 {
 	nextStateId = "";
+}
+
+std::string State::getId()
+{
+	return id;
 }
 
 State::~State()
