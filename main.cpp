@@ -1,10 +1,16 @@
 #include <SFML/Graphics.hpp>
+#include "StateManager.h"
+#include "TitleState.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Picr-Os");
+	window.setFramerateLimit(60);
+
+	StateManager stateManager;
+	TitleState* titleState = new TitleState();
+	stateManager.addState(titleState);
+	stateManager.setCurrentStateId(titleState->getId());
 
 	while (window.isOpen())
 	{
@@ -15,8 +21,12 @@ int main()
 				window.close();
 		}
 
+		stateManager.update();
+
 		window.clear();
-		window.draw(shape);
+		
+		stateManager.draw(&window);
+
 		window.display();
 	}
 	
