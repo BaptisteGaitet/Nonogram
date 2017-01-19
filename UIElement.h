@@ -8,8 +8,9 @@ class UIElement
 {
 private:
 	std::string id;
-	sf::IntRect bounds;
 	int drawOrder;
+protected:
+	sf::IntRect bounds;
 public:
 	UIElement(std::string _id, sf::IntRect _bounds, int _drawOrder);
 
