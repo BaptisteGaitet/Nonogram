@@ -5,6 +5,7 @@
 #include "State.h"
 #include "UIBackground.h"
 #include "UIImage.h"
+#include "UIButton.h"
 
 class TitleState : public State
 {
