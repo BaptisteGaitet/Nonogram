@@ -4,7 +4,7 @@
 TitleState::TitleState() : State("title")
 {
 	// TEST //
-	UIBackground* bg = new UIBackground("background", 0, "bg2.png");
+	UIBackground* bg = new UIBackground("background", 0, "bg3.png");
 	uiholder.addUIElement(bg);
 	UIImage* img = new UIImage("image", sf::IntRect(400, 0, 400, 600), 1, "cover.png");
 	uiholder.addUIElement(img);
@@ -21,6 +21,18 @@ TitleState::TitleState() : State("title")
 void TitleState::update()
 {
 	uiholder.update();
+
+	UIButton* btnExit = (UIButton*)uiholder.getUIElement("btn_exit");
+	if (btnExit->getClic())
+	{
+		WindowManager::getInstance().setRequestExit(true);
+	}
+
+	UIButton* btnSettings = (UIButton*)uiholder.getUIElement("btn_settings");
+	if (btnSettings->getClic())
+	{
+		setNextStateId("settings");
+	}
 }
 
 // Draws the state
