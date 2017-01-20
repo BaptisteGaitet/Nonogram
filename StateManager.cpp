@@ -14,6 +14,16 @@ void StateManager::update()
 	{
 		// Update it
 		states.at(currentStateId)->update();
+
+		std::string next = states.at(currentStateId)->getNextStateId();
+		if (next != "")
+		{
+			if (hasState(next))
+			{
+				states.at(currentStateId)->setNextStateId("");
+				currentStateId = next;
+			}
+		}
 	}
 }
 
