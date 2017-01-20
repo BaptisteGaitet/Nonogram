@@ -3,6 +3,7 @@
 
 WindowManager::WindowManager()
 {
+	requestExit = false;
 }
 
 WindowManager& WindowManager::getInstance()
@@ -48,6 +49,16 @@ sf::IntRect WindowManager::getDisplayArea()
 sf::Vector2u WindowManager::getScreenSize()
 {
 	return screenSize;
+}
+
+void WindowManager::setRequestExit(bool _value)
+{
+	requestExit = _value;
+}
+
+bool WindowManager::getRequestExit()
+{
+	return requestExit;
 }
 
 WindowManager::~WindowManager()

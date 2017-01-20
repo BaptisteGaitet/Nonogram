@@ -16,6 +16,7 @@ private:
 	sf::IntRect displayArea;
 	float stretchRatio;
 	sf::Vector2u screenSize;
+	bool requestExit;
 public:
 	static WindowManager& getInstance();
 
@@ -23,6 +24,8 @@ public:
 	sf::Vector2u getScreenSize();
 	float getStretchRatio();
 	sf::IntRect getDisplayArea();
+	void setRequestExit(bool _value);
+	bool getRequestExit();
 
 	~WindowManager();
 };
