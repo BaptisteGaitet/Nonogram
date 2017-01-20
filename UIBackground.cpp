@@ -1,10 +1,8 @@
 #include "UIBackground.h"
 
-
 UIBackground::UIBackground(std::string _id, int _drawOrder) : UIElement(_id, sf::IntRect(0,0,100,100), _drawOrder)
 {
 	// TEST //
-	//shape.setFillColor(sf::Color(100,100,200));
 	TextureManager::getInstance().addTexture("bg2.png");
 	TextureManager::getInstance().setRepeated("bg2.png", true);
 	shape.setTexture(TextureManager::getInstance().getTexture("bg2.png"));
@@ -26,6 +24,7 @@ void UIBackground::draw(sf::RenderWindow* window)
 {
 	sf::Vector2i screensize = sf::Vector2i(window->getSize().x, window->getSize().y);
 	setShapePixelSize(screensize);
+
 	window->draw(shape);
 }
 

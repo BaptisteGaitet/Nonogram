@@ -7,8 +7,6 @@
 
 class UIBackground : public UIElement
 {
-private:
-	sf::RectangleShape shape;
 public:
 	UIBackground(std::string _id, int _drawOrder);
 

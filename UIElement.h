@@ -2,6 +2,7 @@
 #define UI_ELEMENT_H
 
 #include <string>
+#include <iostream>
 #include <SFML/Graphics.hpp>
 
 class UIElement
@@ -12,12 +13,12 @@ private:
 protected:
 	sf::IntRect bounds;
 	sf::RectangleShape shape;
+	void setShapePixelSize(sf::Vector2i screensize);
 public:
 	UIElement(std::string _id, sf::IntRect _bounds, int _drawOrder);
 
 	std::string getId();
 	int getDrawOrder();
-	void setShapePixelSize(sf::Vector2i screensize);
 
 	virtual void update() = 0;
 	virtual void draw(sf::RenderWindow* window) = 0;

@@ -6,6 +6,8 @@ TitleState::TitleState() : State("title")
 	// TEST //
 	UIBackground* bg = new UIBackground("background", 0);
 	uiholder.addUIElement(bg);
+	UIImage* img = new UIImage("image", sf::IntRect(50, 5, 45, 90), 1, "cover.png");
+	uiholder.addUIElement(img);
 	//////////
 }
 

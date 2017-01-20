@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "State.h"
 #include "UIBackground.h"
+#include "UIImage.h"
 
 class TitleState : public State
 {

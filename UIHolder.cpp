@@ -68,7 +68,7 @@ void UIHolder::sortDrawOrderVector()
 		sorted = true;
 		for (int i = 0; i < drawingQueue.size() - 1; i++)
 		{
-			if (drawingQueue.at(i)->getDrawOrder() < drawingQueue.at(i + 1)->getDrawOrder())
+			if (drawingQueue.at(i)->getDrawOrder() > drawingQueue.at(i + 1)->getDrawOrder())
 			{ 
 				UIElement* tmp = drawingQueue.at(i);
 				drawingQueue.at(i) = drawingQueue.at(i + 1);
