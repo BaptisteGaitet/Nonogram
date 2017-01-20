@@ -18,13 +18,20 @@ int UIElement::getDrawOrder()
 	return drawOrder;
 }
 
-void UIElement::setShapePixelSize(sf::Vector2i screensize)
+void UIElement::snapToDisplayArea()
 {
-	shape.setPosition(sf::Vector2f(screensize.x * ((float)bounds.left / 100), screensize.y * ((float)bounds.top / 100)));
-	shape.setSize(sf::Vector2f(screensize.x * ((float)bounds.width / 100), screensize.y * ((float)bounds.height / 100)));
+	sf::Vector2f newPosition;
+	sf::Vector2f newSize;
+	sf::IntRect displayArea = WindowManager::getInstance().getDisplayArea();
+	float stretchRatio = WindowManager::getInstance().getStretchRatio();
 
-	//std::cout << shape.getPosition().x << ", " << shape.getPosition().y << "\n";
-	//std::cout << shape.getSize().x << ", " << shape.getSize().y << "\n";
+	newPosition.x = (bounds.left * stretchRatio) + displayArea.left;
+	newPosition.y = (bounds.top * stretchRatio) + displayArea.top;
+	newSize.x = bounds.width * stretchRatio;
+	newSize.y = bounds.height * stretchRatio;
+
+	shape.setPosition(newPosition);
+	shape.setSize(newSize);
 }
 
 UIElement::~UIElement()

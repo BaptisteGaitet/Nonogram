@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "WindowManager.h"
 
 class UIElement
 {
@@ -13,7 +14,8 @@ private:
 protected:
 	sf::IntRect bounds;
 	sf::RectangleShape shape;
-	void setShapePixelSize(sf::Vector2i screensize);
+
+	void snapToDisplayArea();
 public:
 	UIElement(std::string _id, sf::IntRect _bounds, int _drawOrder);
 
