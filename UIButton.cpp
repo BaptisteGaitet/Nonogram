@@ -6,10 +6,12 @@ UIButton::UIButton(std::string _id, sf::IntRect _bounds, int _drawOrder, std::st
 	TextureManager::getInstance().addTexture(_path);
 	shape.setTexture(TextureManager::getInstance().getTexture(_path));
 	shape.setTextureRect(sf::IntRect(0, 0, TextureManager::getInstance().getTexture(_path)->getSize().x / 3, TextureManager::getInstance().getTexture(_path)->getSize().y));
+	clic = false;
 }
 
 void UIButton::update()
 {
+	clic = false;
 	sf::IntRect pixelBounds = sf::IntRect(shape.getPosition().x, shape.getPosition().y, shape.getSize().x, shape.getSize().y);
 
 	if (MouseManager::getInstance().isOver(pixelBounds))
@@ -18,7 +20,10 @@ void UIButton::update()
 		{
 			state = pressed;
 		}
-		else
+		else if (state == pressed)
+		{
+			clic = true;
+		}else
 		{
 			state = hovered;
 		}
@@ -48,6 +53,11 @@ void UIButton::draw(sf::RenderWindow* window)
 	snapToDisplayArea();
 
 	window->draw(shape);
+}
+
+bool UIButton::getClic()
+{
+	return clic;
 }
 
 UIButton::~UIButton()

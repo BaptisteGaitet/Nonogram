@@ -13,11 +13,13 @@ class UIButton :
 {
 private:
 	ButtonState state;
+	bool clic;
 public:
 	UIButton(std::string _id, sf::IntRect _bounds, int _drawOrder, std::string _path);
 
 	void update();
 	void draw(sf::RenderWindow* window);
+	bool getClic();
 
 	~UIButton();
 };
