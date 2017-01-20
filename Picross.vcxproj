@@ -81,6 +81,7 @@
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="UIHolder.cpp" />
     <ClCompile Include="UIImage.cpp" />
+    <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MouseManager.h" />
@@ -93,6 +94,7 @@
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="UIHolder.h" />
     <ClInclude Include="UIImage.h" />
+    <ClInclude Include="WindowManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

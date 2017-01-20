@@ -66,6 +66,9 @@
     <ClCompile Include="UIButton.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="WindowManager.cpp">
+      <Filter>Source Files\Statics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
@@ -97,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="UIButton.h">
       <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowManager.h">
+      <Filter>Header Files\Statics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
