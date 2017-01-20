@@ -8,7 +8,7 @@
 class UIBackground : public UIElement
 {
 public:
-	UIBackground(std::string _id, int _drawOrder);
+	UIBackground(std::string _id, int _drawOrder, std::string _path);
 
 	void update();
 	void draw(sf::RenderWindow* window);

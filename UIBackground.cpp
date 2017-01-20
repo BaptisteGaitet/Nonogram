@@ -1,11 +1,11 @@
 #include "UIBackground.h"
 
-UIBackground::UIBackground(std::string _id, int _drawOrder) : UIElement(_id, sf::IntRect(0,0,100,100), _drawOrder)
+UIBackground::UIBackground(std::string _id, int _drawOrder, std::string _path) : UIElement(_id, sf::IntRect(0,0,100,100), _drawOrder)
 {
 	// TEST //
-	TextureManager::getInstance().addTexture("bg2.png");
-	TextureManager::getInstance().setRepeated("bg2.png", true);
-	shape.setTexture(TextureManager::getInstance().getTexture("bg2.png"));
+	TextureManager::getInstance().addTexture(_path);
+	TextureManager::getInstance().setRepeated(_path, true);
+	shape.setTexture(TextureManager::getInstance().getTexture(_path));
 	shape.setTextureRect(sf::IntRect(0, 0, 400, 300));
 	//////////
 }
