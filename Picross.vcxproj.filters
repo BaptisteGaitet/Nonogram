@@ -69,6 +69,9 @@
     <ClCompile Include="WindowManager.cpp">
       <Filter>Source Files\Statics</Filter>
     </ClCompile>
+    <ClCompile Include="SettingsState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="WindowManager.h">
       <Filter>Header Files\Statics</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsState.h">
+      <Filter>Header Files\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
