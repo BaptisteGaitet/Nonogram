@@ -14,7 +14,6 @@ public:
 
 	void update();
 	void draw(sf::RenderWindow* window);
-	void setShapePixelSize(sf::Vector2i screensize);
 
 	~UIBackground();
 };

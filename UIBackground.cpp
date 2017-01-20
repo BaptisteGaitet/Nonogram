@@ -29,12 +29,6 @@ void UIBackground::draw(sf::RenderWindow* window)
 	window->draw(shape);
 }
 
-void UIBackground::setShapePixelSize(sf::Vector2i screensize)
-{
-	shape.setPosition(sf::Vector2f(screensize.x * (bounds.left / 100), screensize.y * (bounds.top /100)));
-	shape.setSize(sf::Vector2f(screensize.x * (bounds.width / 100), screensize.y * (bounds.height / 100)));
-}
-
 UIBackground::~UIBackground()
 {
 }
