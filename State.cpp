@@ -16,7 +16,7 @@ std::string State::getNextStateId()
 // Sets nextStateId when switching to a new state is required
 void State::setNextStateId(std::string _nextStateId)
 {
-
+	nextStateId = _nextStateId;
 }
 
 // Resets nestStateId to an empty string, meaning no switching requested
