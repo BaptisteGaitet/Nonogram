@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "StateManager.h"
 #include "TitleState.h"
+#include "SettingsState.h"
 #include "MouseManager.h"
 #include "WindowManager.h"
 
@@ -13,7 +14,9 @@ int main()
 	WindowManager::getInstance().updateDisplayArea(window.getSize());
 	StateManager stateManager;
 	TitleState* titleState = new TitleState();
+	SettingsState* settingsState = new SettingsState();
 	stateManager.addState(titleState);
+	stateManager.addState(settingsState);
 	stateManager.setCurrentStateId(titleState->getId());
 
 	while (window.isOpen())
@@ -21,7 +24,7 @@ int main()
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
+			if (event.type == sf::Event::Closed || WindowManager::getInstance().getRequestExit())
 			{
 				window.close();
 			}
