@@ -71,21 +71,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MouseManager.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="TitleState.cpp" />
     <ClCompile Include="UIBackground.cpp" />
+    <ClCompile Include="UIButton.cpp" />
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="UIHolder.cpp" />
     <ClCompile Include="UIImage.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MouseManager.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="TitleState.h" />
     <ClInclude Include="UIBackground.h" />
+    <ClInclude Include="UIButton.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="UIHolder.h" />
     <ClInclude Include="UIImage.h" />
