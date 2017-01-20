@@ -57,6 +57,9 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files\Statics</Filter>
     </ClCompile>
+    <ClCompile Include="UIImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
@@ -79,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>Header Files\Statics</Filter>
+    </ClInclude>
+    <ClInclude Include="UIImage.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

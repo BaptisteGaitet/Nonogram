@@ -78,6 +78,7 @@
     <ClCompile Include="UIBackground.cpp" />
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="UIHolder.cpp" />
+    <ClCompile Include="UIImage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h" />
@@ -87,6 +88,7 @@
     <ClInclude Include="UIBackground.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="UIHolder.h" />
+    <ClInclude Include="UIImage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
