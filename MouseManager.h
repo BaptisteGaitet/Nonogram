@@ -14,10 +14,12 @@ private:
 	bool lastLeftDown;
 	bool currentRightDown;
 	bool lastRightDown;
+	sf::Window* window;
 
 public:
 	static MouseManager& getInstance();
 
+	void setWindow(sf::Window* _window);
 	void update();
 	bool isLeftDown();
 	bool isRightDown();

@@ -12,6 +12,11 @@ MouseManager& MouseManager::getInstance()
 	return instance;
 }
 
+void MouseManager::setWindow(sf::Window* _window)
+{
+	window = _window;
+}
+
 void MouseManager::update()
 {
 	lastLeftDown = currentLeftDown;
@@ -67,7 +72,7 @@ bool MouseManager::rightRelease()
 
 sf::Vector2i MouseManager::getPosition()
 {
-	return sf::Mouse::getPosition();
+	return sf::Mouse::getPosition(*window);
 }
 
 bool MouseManager::isOver(sf::IntRect _rect)
