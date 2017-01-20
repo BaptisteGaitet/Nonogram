@@ -6,7 +6,7 @@ UIBackground::UIBackground(std::string _id, int _drawOrder, std::string _path) :
 	TextureManager::getInstance().addTexture(_path);
 	TextureManager::getInstance().setRepeated(_path, true);
 	shape.setTexture(TextureManager::getInstance().getTexture(_path));
-	shape.setTextureRect(sf::IntRect(0, 0, 400, 300));
+	
 	//////////
 }
 
@@ -22,8 +22,10 @@ void UIBackground::update()
 
 void UIBackground::draw(sf::RenderWindow* window)
 {
-	sf::Vector2i screensize = sf::Vector2i(window->getSize().x, window->getSize().y);
-	setShapePixelSize(screensize);
+	sf::Vector2f size = sf::Vector2f(WindowManager::getInstance().getScreenSize().x, WindowManager::getInstance().getScreenSize().y);
+	shape.setSize(size);
+	shape.setPosition(0, 0);
+	shape.setTextureRect(sf::IntRect(shape.getTextureRect().left, shape.getTextureRect().top, WindowManager::getInstance().getScreenSize().x / 2, WindowManager::getInstance().getScreenSize().y / 2));
 
 	window->draw(shape);
 }
