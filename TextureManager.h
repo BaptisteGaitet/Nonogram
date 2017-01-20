@@ -12,13 +12,16 @@ private:
 	TextureManager();
 	TextureManager(TextureManager const&);
 	void operator=(TextureManager const&);
+
 	std::map<std::string, sf::Texture> textures;
 	bool hasTexture(std::string _id);
 public:
 	static TextureManager& getInstance();
+
 	void addTexture(std::string _path);
 	sf::Texture* getTexture(std::string _id);
 	void setRepeated(std::string _id, bool repeated);
+
 	~TextureManager();
 };
 
