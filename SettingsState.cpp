@@ -11,8 +11,14 @@ SettingsState::SettingsState() : State("settings")
 	uiholder.addUIElement(img);
 	UIButton* btnBack = new UIButton("btn_back", sf::IntRect(100, 500, 64, 64), 2, "btn4.png");
 	uiholder.addUIElement(btnBack);
-	UILabel* lblTest = new UILabel("lbl_test", sf::IntRect(100, 100, 100, 30), 2, "Here are the settings, \nthere is nothing right \nnow but maybe in the \nfuture there will.");
-	uiholder.addUIElement(lblTest);
+	UILabel* lblMusic = new UILabel("lbl_music", sf::IntRect(120, 80, 100, 30), 2, "Music volume");
+	uiholder.addUIElement(lblMusic);
+	UISlider* sldMusic = new UISlider("sld_music", sf::IntRect(120, 120, 250, 20), 3);
+	uiholder.addUIElement(sldMusic);
+	UILabel* lblSfx= new UILabel("lbl_sfx", sf::IntRect(120, 160, 100, 30), 2, "Sound effects volume");
+	uiholder.addUIElement(lblSfx);
+	UISlider* sldSfx = new UISlider("sld_sfx", sf::IntRect(120, 200, 250, 20), 3);
+	uiholder.addUIElement(sldSfx);
 
 	//////////
 }
