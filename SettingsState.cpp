@@ -9,6 +9,8 @@ SettingsState::SettingsState() : State("settings")
 	uiholder.addUIElement(bg);
 	UIImage* img = new UIImage("image", sf::IntRect(0, 0, 800, 600), 1, "book.png");
 	uiholder.addUIElement(img);
+	UIImage* sketch = new UIImage("sketch", sf::IntRect(400, 50, 300, 500), 1, "settingsSketch.png");
+	uiholder.addUIElement(sketch);
 	UIButton* btnBack = new UIButton("btn_back", sf::IntRect(100, 500, 64, 64), 2, "btn4.png");
 	uiholder.addUIElement(btnBack);
 	UILabel* lblMusic = new UILabel("lbl_music", sf::IntRect(120, 80, 100, 30), 2, "Music volume");
