@@ -11,9 +11,9 @@ UIButton::UIButton(std::string _id, sf::IntRect _bounds, int _drawOrder, std::st
 
 void UIButton::update()
 {
+	clic = false;
 	if (enabled)
 	{
-		clic = false;
 		sf::IntRect pixelBounds = sf::IntRect(shape.getPosition().x, shape.getPosition().y, shape.getSize().x, shape.getSize().y);
 
 		if (MouseManager::getInstance().isOver(pixelBounds))
@@ -25,6 +25,7 @@ void UIButton::update()
 			else if (state == pressed)
 			{
 				clic = true;
+				state = idle;
 			}else
 			{
 				state = hovered;
