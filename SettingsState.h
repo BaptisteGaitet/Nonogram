@@ -5,6 +5,7 @@
 #include "UIBackground.h"
 #include "UIImage.h"
 #include "UIButton.h"
+#include "UILabel.h"
 
 class SettingsState : public State
 {

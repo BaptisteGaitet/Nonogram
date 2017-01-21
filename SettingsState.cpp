@@ -11,6 +11,8 @@ SettingsState::SettingsState() : State("settings")
 	uiholder.addUIElement(img);
 	UIButton* btnBack = new UIButton("btn_back", sf::IntRect(100, 500, 64, 64), 2, "btn4.png");
 	uiholder.addUIElement(btnBack);
+	UILabel* lblTest = new UILabel("lbl_test", sf::IntRect(100, 100, 100, 30), 2, "Here are the settings, \nthere is nothing right \nnow but maybe in the \nfuture there will.");
+	uiholder.addUIElement(lblTest);
 
 	//////////
 }
