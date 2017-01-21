@@ -3,6 +3,7 @@
 
 UILabel::UILabel(std::string _id, sf::IntRect _bounds, int _drawOrder, std::string _content) : UIElement(_id, _bounds, _drawOrder)
 {
+	enabled = true;
 	FontManager::getInstance().addFont("shty.ttf");
 	text.setFont(*FontManager::getInstance().getFont("shty.ttf"));
 	text.setString(_content);
@@ -16,9 +17,12 @@ void UILabel::update()
 
 void UILabel::draw(sf::RenderWindow* window)
 {
-	snapToDisplayArea();
-	snapTextToShape();
-	window->draw(text);
+	if (enabled)
+	{
+		snapToDisplayArea();
+		snapTextToShape();
+		window->draw(text);
+	}
 }
 
 void UILabel::snapTextToShape()
@@ -35,6 +39,16 @@ void UILabel::setString(std::string _content)
 std::string UILabel::getString()
 {
 	return text.getString();
+}
+
+bool UILabel::getEnabled()
+{
+	return enabled;
+}
+
+void UILabel::setEnabled(bool _val)
+{
+	enabled = _val;
 }
 
 UILabel::~UILabel()

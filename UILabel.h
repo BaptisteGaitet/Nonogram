@@ -10,6 +10,7 @@ class UILabel :
 private:
 	sf::Text text;
 	void snapTextToShape();
+	bool enabled;
 public:
 	UILabel(std::string _id, sf::IntRect _bounds, int _drawOrder, std::string _content);
 
@@ -17,6 +18,8 @@ public:
 	void draw(sf::RenderWindow* window);
 	void setString(std::string _str);
 	std::string getString();
+	bool getEnabled();
+	void setEnabled(bool _val);
 
 	~UILabel();
 };
