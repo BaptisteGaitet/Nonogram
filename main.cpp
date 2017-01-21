@@ -9,7 +9,7 @@
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Picr-Os");
-	window.setFramerateLimit(60);
+	WindowManager::getInstance().initialize(&window);
 
 	MouseManager::getInstance().setWindow(&window);
 	WindowManager::getInstance().updateDisplayArea(window.getSize());
