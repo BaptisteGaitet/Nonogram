@@ -70,6 +70,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LevelSelectState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MouseManager.cpp" />
     <ClCompile Include="SettingsState.cpp" />
@@ -85,6 +86,7 @@
     <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LevelSelectState.h" />
     <ClInclude Include="MouseManager.h" />
     <ClInclude Include="SettingsState.h" />
     <ClInclude Include="State.h" />
