@@ -11,53 +11,69 @@ UIButton::UIButton(std::string _id, sf::IntRect _bounds, int _drawOrder, std::st
 
 void UIButton::update()
 {
-	clic = false;
-	sf::IntRect pixelBounds = sf::IntRect(shape.getPosition().x, shape.getPosition().y, shape.getSize().x, shape.getSize().y);
+	if (enabled)
+	{
+		clic = false;
+		sf::IntRect pixelBounds = sf::IntRect(shape.getPosition().x, shape.getPosition().y, shape.getSize().x, shape.getSize().y);
 
-	if (MouseManager::getInstance().isOver(pixelBounds))
-	{
-		if (MouseManager::getInstance().isLeftDown())
+		if (MouseManager::getInstance().isOver(pixelBounds))
 		{
-			state = pressed;
+			if (MouseManager::getInstance().isLeftDown())
+			{
+				state = pressed;
+			}
+			else if (state == pressed)
+			{
+				clic = true;
+			}else
+			{
+				state = hovered;
+			}
 		}
-		else if (state == pressed)
+		else 
 		{
-			clic = true;
-		}else
-		{
-			state = hovered;
+			state = idle;
 		}
-	}
-	else 
-	{
-		state = idle;
-	}
 
-	sf::IntRect rect = shape.getTextureRect();
-	if (state == idle)
-	{
-		shape.setTextureRect(sf::IntRect(0,0,rect.width,rect.height));
-	}
-	else if (state == hovered)
-	{
-		shape.setTextureRect(sf::IntRect(rect.width, 0, rect.width, rect.height));
-	}
-	else
-	{
-		shape.setTextureRect(sf::IntRect(rect.width*2, 0, rect.width, rect.height));
+		sf::IntRect rect = shape.getTextureRect();
+		if (state == idle)
+		{
+			shape.setTextureRect(sf::IntRect(0,0,rect.width,rect.height));
+		}
+		else if (state == hovered)
+		{
+			shape.setTextureRect(sf::IntRect(rect.width, 0, rect.width, rect.height));
+		}
+		else
+		{
+			shape.setTextureRect(sf::IntRect(rect.width*2, 0, rect.width, rect.height));
+		}
 	}
 }
 
 void UIButton::draw(sf::RenderWindow* window)
 {
-	snapToDisplayArea();
+	if (enabled)
+	{
+		snapToDisplayArea();
 
-	window->draw(shape);
+		window->draw(shape);
+	}
 }
 
 bool UIButton::getClic()
 {
 	return clic;
+}
+
+void UIButton::setEnabled(bool _val)
+{
+	enabled = _val;
+}
+
+bool UIButton::getEnabled()
+{
+	return enabled;
 }
 
 UIButton::~UIButton()
