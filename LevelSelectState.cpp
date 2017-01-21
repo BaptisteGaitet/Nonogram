@@ -3,7 +3,27 @@
 
 LevelSelectState::LevelSelectState() : State("levelselect")
 {
+	selectedLevel = 0;
+
 	// TEST //
+	sf::Vector2i btnOffset = sf::Vector2i(120, 100);
+	sf::Vector2i btnSpace = sf::Vector2i(20, 20);
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			std::string btnName = "btnLevel" + std::to_string(j * 3 + i);
+			std::string lblName = "lblLevel" + std::to_string(j * 3 + i);
+
+			UIButton* btnLevel = new UIButton(btnName, sf::IntRect((i * (64 + btnSpace.x)) + btnOffset.x, (j * (64 + btnSpace.y)) + btnOffset.y, 64, 64), 2, "btnLevel.png");
+			UILabel* lblLevel = new UILabel(lblName, sf::IntRect((i * (64 + btnSpace.x)) + btnOffset.x + 10, (j * (64 + btnSpace.y)) + btnOffset.y - 6, 64, 40), 3, std::to_string(j * 3 + i + 1));
+			lblLevel->setTextColor(sf::Color(50, 50, 50));
+
+			uiholder.addUIElement(btnLevel);
+			uiholder.addUIElement(lblLevel);
+		}
+	}
+
 	UIBackground* bg = new UIBackground("background", 0, "bg1.png");
 	uiholder.addUIElement(bg);
 	UIImage* img = new UIImage("image", sf::IntRect(0, 0, 800, 600), 1, "book.png");
@@ -38,6 +58,11 @@ void LevelSelectState::update()
 void LevelSelectState::draw(sf::RenderWindow* window)
 {
 	uiholder.draw(window);
+}
+
+void LevelSelectState::updateLevelButtons()
+{
+
 }
 
 LevelSelectState::~LevelSelectState()

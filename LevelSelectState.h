@@ -9,6 +9,10 @@
 
 class LevelSelectState : public State
 {
+private:
+	int selectedLevel;
+
+	void updateLevelButtons();
 public:
 	LevelSelectState();
 
