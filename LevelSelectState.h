@@ -6,6 +6,7 @@
 #include "UIImage.h"
 #include "UIButton.h"
 #include "UILabel.h"
+#include "UILevelButton.h"
 
 class LevelSelectState : public State
 {

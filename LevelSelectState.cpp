@@ -6,21 +6,16 @@ LevelSelectState::LevelSelectState() : State("levelselect")
 	selectedLevel = 0;
 
 	// TEST //
-	sf::Vector2i btnOffset = sf::Vector2i(120, 100);
-	sf::Vector2i btnSpace = sf::Vector2i(20, 20);
+	sf::Vector2i buttonMargin = sf::Vector2i(120, 120);
+	sf::Vector2i buttonOffset = sf::Vector2i(16, 16);
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			std::string btnName = "btnLevel" + std::to_string(j * 3 + i);
-			std::string lblName = "lblLevel" + std::to_string(j * 3 + i);
-
-			UIButton* btnLevel = new UIButton(btnName, sf::IntRect((i * (64 + btnSpace.x)) + btnOffset.x, (j * (64 + btnSpace.y)) + btnOffset.y, 64, 64), 2, "btnLevel.png");
-			UILabel* lblLevel = new UILabel(lblName, sf::IntRect((i * (64 + btnSpace.x)) + btnOffset.x + 10, (j * (64 + btnSpace.y)) + btnOffset.y - 6, 64, 40), 3, std::to_string(j * 3 + i + 1));
-			lblLevel->setTextColor(sf::Color(50, 50, 50));
-
-			uiholder.addUIElement(btnLevel);
-			uiholder.addUIElement(lblLevel);
+			std::string name = "lvlButton" + std::to_string(j * 3 + i);
+			UILevelButton* lvlButton = new UILevelButton(name, sf::IntRect((i * (64 + buttonOffset.x)) + buttonMargin.x, (j * (64 + buttonOffset.y)) + buttonMargin.y, 64, 64), 3);
+			lvlButton->setLevelNumber(j * 3 + i);
+			uiholder.addUIElement(lvlButton);
 		}
 	}
 
