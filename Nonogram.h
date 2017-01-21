@@ -11,6 +11,7 @@ private:
 	int height;
 	int width;
 public:
+	Nonogram();
 	Nonogram(int _width, int _height, bool* _grid);
 
 	int getWidth();

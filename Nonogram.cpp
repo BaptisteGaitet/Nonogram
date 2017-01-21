@@ -1,5 +1,15 @@
 #include "Nonogram.h"
 
+Nonogram::Nonogram()
+{
+	width = 5;
+	height = 5;
+	grid = new bool[width * height];
+	for (int i = 0; i < width * height; i++)
+	{
+		grid[i] = false;
+	}
+}
 
 Nonogram::Nonogram(int _width, int _height, bool * _grid)
 {
