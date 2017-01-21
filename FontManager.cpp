@@ -52,7 +52,6 @@ sf::Font* FontManager::getFont(std::string _id)
 
 	if (hasFont(_id))
 	{
-		std::cout << "returned font\n";
 		res = &fonts.at(_id);
 	}
 
