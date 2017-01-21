@@ -19,7 +19,7 @@ public:
 	static FontManager& getInstance();
 
 	void addFont(std::string _path);
-	sf::Font getFont(std::string _id);
+	sf::Font* getFont(std::string _id);
 
 	~FontManager();
 };

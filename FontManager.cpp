@@ -46,13 +46,14 @@ void FontManager::addFont(std::string _path)
 	}
 }
 
-sf::Font FontManager::getFont(std::string _id)
+sf::Font* FontManager::getFont(std::string _id)
 {
-	sf::Font res;
+	sf::Font* res = nullptr;
 
 	if (hasFont(_id))
 	{
-		res = fonts.at(_id);
+		std::cout << "returned font\n";
+		res = &fonts.at(_id);
 	}
 
 	return res;
