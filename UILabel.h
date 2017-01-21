@@ -20,6 +20,7 @@ public:
 	std::string getString();
 	bool getEnabled();
 	void setEnabled(bool _val);
+	void setTextColor(sf::Color _color);
 
 	~UILabel();
 };

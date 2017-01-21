@@ -51,6 +51,11 @@ void UILabel::setEnabled(bool _val)
 	enabled = _val;
 }
 
+void UILabel::setTextColor(sf::Color _color)
+{
+	text.setColor(_color);
+}
+
 UILabel::~UILabel()
 {
 }
