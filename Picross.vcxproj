@@ -88,6 +88,7 @@
     <ClCompile Include="UIHolder.cpp" />
     <ClCompile Include="UIImage.cpp" />
     <ClCompile Include="UILabel.cpp" />
+    <ClCompile Include="UILevelButton.cpp" />
     <ClCompile Include="UISlider.cpp" />
     <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
@@ -109,6 +110,7 @@
     <ClInclude Include="UIHolder.h" />
     <ClInclude Include="UIImage.h" />
     <ClInclude Include="UILabel.h" />
+    <ClInclude Include="UILevelButton.h" />
     <ClInclude Include="UISlider.h" />
     <ClInclude Include="WindowManager.h" />
   </ItemGroup>

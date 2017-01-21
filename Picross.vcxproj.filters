@@ -99,6 +99,9 @@
     <ClCompile Include="LevelManager.cpp">
       <Filter>Source Files\Nonogram</Filter>
     </ClCompile>
+    <ClCompile Include="UILevelButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
@@ -157,6 +160,9 @@
     </ClInclude>
     <ClInclude Include="LevelManager.h">
       <Filter>Header Files\Nonogram</Filter>
+    </ClInclude>
+    <ClInclude Include="UILevelButton.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
