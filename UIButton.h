@@ -6,12 +6,11 @@
 #include "MouseManager.h"
 #include "TextureManager.h"
 
-enum ButtonState {idle, hovered, pressed};
-
 class UIButton :
 	public UIElement
 {
 private:
+	enum ButtonState { idle, hovered, pressed };
 	ButtonState state;
 	bool clic;
 	bool enabled;
