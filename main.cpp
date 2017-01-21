@@ -5,9 +5,35 @@
 #include "LevelSelectState.h"
 #include "MouseManager.h"
 #include "WindowManager.h"
+#include "Nonogram.h"
 
 int main()
 {
+	// TEST //
+
+	bool tab[] = {
+		true, false, true, false, true,
+		false, false, false, false, false,
+		true, true, true, true, true,
+		true, false, true, true, true,
+		true, false, true, false, true
+	};
+
+	Nonogram nono = Nonogram(5,5,tab);
+	std::cout << nono.getHeight() << "\n";
+	std::cout << nono.getWidth() << "\n";
+	std::cout << nono.toString() << "\n";
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << nono.getRowHint(i);
+	}
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << nono.getColumnHint(i);
+	}
+
+	//////////
+
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Picr-Os");
 	WindowManager::getInstance().initialize(&window);
 
