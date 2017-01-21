@@ -33,6 +33,12 @@ void TitleState::update()
 	{
 		setNextStateId("settings");
 	}
+
+	UIButton* btnStart = (UIButton*)uiholder.getUIElement("btn_start");
+	if (btnStart->getClic())
+	{
+		setNextStateId("levelselect");
+	}
 }
 
 // Draws the state
