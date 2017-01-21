@@ -13,6 +13,13 @@ WindowManager& WindowManager::getInstance()
 	return instance;
 }
 
+void WindowManager::initialize(sf::Window* _window)
+{
+	window = _window;
+	videoModes = sf::VideoMode::getFullscreenModes();
+	window->setFramerateLimit(60);
+}
+
 void WindowManager::updateDisplayArea(sf::Vector2u screensize)
 {
 	screenSize = screensize;
@@ -59,6 +66,30 @@ void WindowManager::setRequestExit(bool _value)
 bool WindowManager::getRequestExit()
 {
 	return requestExit;
+}
+
+void WindowManager::setFullscreen(bool _val)
+{
+	if (_val && !fullscreen)
+	{
+		sf::Vector2u size = sf::Vector2u(videoModes.at(0).width, videoModes.at(0).height);
+		updateDisplayArea(size);
+		window->create(videoModes.at(0), "Picr-Os", sf::Style::Fullscreen);
+		window->setFramerateLimit(60);
+		fullscreen = true;
+	}
+	else if (!_val && fullscreen)
+	{
+		window->create(sf::VideoMode(800, 600), "Picr-Os");
+		updateDisplayArea(sf::Vector2u(800,600));
+		window->setFramerateLimit(60);
+		fullscreen = false;
+	}
+}
+
+bool WindowManager::getFullscreen()
+{
+	return fullscreen;
 }
 
 WindowManager::~WindowManager()
