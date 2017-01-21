@@ -31,6 +31,12 @@
     <Filter Include="Header Files\Statics">
       <UniqueIdentifier>{b5f3dff0-81bb-41cc-b421-ca04369246fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Nonogram">
+      <UniqueIdentifier>{9d66d40b-6769-4548-b733-31dab1e4b6fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Nonogram">
+      <UniqueIdentifier>{560a6373-db4b-4b82-9ec7-5527016023c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -84,6 +90,9 @@
     <ClCompile Include="UISlider.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Nonogram.cpp">
+      <Filter>Source Files\Nonogram</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
@@ -134,5 +143,16 @@
     <ClInclude Include="UISlider.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Nonogram.h">
+      <Filter>Header Files\Nonogram</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Picross.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

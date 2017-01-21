@@ -74,6 +74,7 @@
     <ClCompile Include="LevelSelectState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MouseManager.cpp" />
+    <ClCompile Include="Nonogram.cpp" />
     <ClCompile Include="SettingsState.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateManager.cpp" />
@@ -92,6 +93,8 @@
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="LevelSelectState.h" />
     <ClInclude Include="MouseManager.h" />
+    <ClInclude Include="Nonogram.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SettingsState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
@@ -105,6 +108,9 @@
     <ClInclude Include="UILabel.h" />
     <ClInclude Include="UISlider.h" />
     <ClInclude Include="WindowManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Picross.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
