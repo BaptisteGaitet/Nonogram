@@ -82,7 +82,7 @@
       <Filter>Source Files\Statics</Filter>
     </ClCompile>
     <ClCompile Include="UISlider.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -132,7 +132,7 @@
       <Filter>Header Files\Statics</Filter>
     </ClInclude>
     <ClInclude Include="UISlider.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
