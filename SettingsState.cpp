@@ -19,6 +19,12 @@ SettingsState::SettingsState() : State("settings")
 	uiholder.addUIElement(lblSfx);
 	UISlider* sldSfx = new UISlider("sld_sfx", sf::IntRect(120, 200, 250, 20), 3);
 	uiholder.addUIElement(sldSfx);
+	UILabel* lblFull= new UILabel("lbl_full", sf::IntRect(120, 280, 100, 30), 2, "Fullscreen");
+	uiholder.addUIElement(lblFull);
+	UIButton* btnFullOn = new UIButton("btn_full_on", sf::IntRect(270, 272, 64, 64), 2, "btnFullOn.png");
+	uiholder.addUIElement(btnFullOn);
+	UIButton* btnFullOff = new UIButton("btn_full_off", sf::IntRect(270, 272, 64, 64), 2, "btnFullOff.png");
+	uiholder.addUIElement(btnFullOff);
 
 	//////////
 }
@@ -32,6 +38,29 @@ void SettingsState::update()
 	if (btnBack->getClic())
 	{
 		setNextStateId("title");
+	}
+
+	UIButton* btnFullOff = (UIButton*)uiholder.getUIElement("btn_full_off");
+	UIButton* btnFullOn = (UIButton*)uiholder.getUIElement("btn_full_on");
+	if (WindowManager::getInstance().getFullscreen())
+	{
+		btnFullOn->setEnabled(true);
+		btnFullOff->setEnabled(false);
+	}
+	else
+	{
+		btnFullOn->setEnabled(false);
+		btnFullOff->setEnabled(true);
+	}
+
+	if (btnFullOff->getClic())
+	{
+		WindowManager::getInstance().setFullscreen(true);
+	}
+
+	if (btnFullOn->getClic())
+	{
+		WindowManager::getInstance().setFullscreen(false);
 	}
 }
 
