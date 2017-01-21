@@ -50,7 +50,6 @@ void UISlider::update()
 	{
 		knobShape.setPosition(shape.getPosition().x + ((float)((float)amount / 100) * shape.getSize().x - (knobShape.getSize().x/2)), shape.getPosition().y);
 	}
-	std::cout << amount << "\n";
 }
 
 void UISlider::draw(sf::RenderWindow* window)
