@@ -10,6 +10,8 @@
 
 class SettingsState : public State
 {
+private:
+	bool warning;
 public:
 	SettingsState();
 
