@@ -5,7 +5,7 @@ SettingsState::SettingsState() : State("settings")
 {
 	// TEST //
 
-	UIBackground* bg = new UIBackground("background", 0, "bg1.png");
+	UIBackground* bg = new UIBackground("background", 0, "bg5.png");
 	uiholder.addUIElement(bg);
 	UIImage* img = new UIImage("image", sf::IntRect(0, 0, 800, 600), 1, "book.png");
 	uiholder.addUIElement(img);
