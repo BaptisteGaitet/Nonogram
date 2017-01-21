@@ -81,6 +81,9 @@
     <ClCompile Include="FontManager.cpp">
       <Filter>Source Files\Statics</Filter>
     </ClCompile>
+    <ClCompile Include="UISlider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="FontManager.h">
       <Filter>Header Files\Statics</Filter>
+    </ClInclude>
+    <ClInclude Include="UISlider.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
