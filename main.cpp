@@ -2,6 +2,7 @@
 #include "StateManager.h"
 #include "TitleState.h"
 #include "SettingsState.h"
+#include "LevelSelectState.h"
 #include "MouseManager.h"
 #include "WindowManager.h"
 
@@ -15,8 +16,10 @@ int main()
 	StateManager stateManager;
 	TitleState* titleState = new TitleState();
 	SettingsState* settingsState = new SettingsState();
+	LevelSelectState* levelSelectState = new LevelSelectState();
 	stateManager.addState(titleState);
 	stateManager.addState(settingsState);
+	stateManager.addState(levelSelectState);
 	stateManager.setCurrentStateId(titleState->getId());
 
 	while (window.isOpen())
