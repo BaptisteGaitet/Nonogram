@@ -48,6 +48,22 @@ void LevelSelectState::update()
 	{
 		setNextStateId("title");
 	}
+
+	for (int i = 0; i < 9; i++)
+	{
+		std::string btnId = "lvlButton" + std::to_string(i);
+		UILevelButton* btn = (UILevelButton*)uiholder.getUIElement(btnId);
+		if (btn->getClic())
+		{
+			selectedLevel = btn->getLevelNumber();
+			btn->setSelected(true);
+			std::cout << std::to_string(selectedLevel) << "\n";
+		}
+		else if (btn->getLevelNumber() != selectedLevel)
+		{
+			btn->setSelected(false);
+		}
+	}
 }
 
 void LevelSelectState::draw(sf::RenderWindow* window)
