@@ -6,12 +6,14 @@
 #include "MouseManager.h"
 #include "WindowManager.h"
 #include "Nonogram.h"
+#include "Level.h"
+#include "LevelManager.h"
 
 int main()
 {
 	// TEST //
 
-	bool tab[] = {
+	bool tab[25] = {
 		true, false, true, false, true,
 		false, false, false, false, false,
 		true, true, true, true, true,
@@ -19,18 +21,14 @@ int main()
 		true, false, true, false, true
 	};
 
-	Nonogram nono = Nonogram(5,5,tab);
-	std::cout << nono.getHeight() << "\n";
-	std::cout << nono.getWidth() << "\n";
-	std::cout << nono.toString() << "\n";
-	for (int i = 0; i < 5; i++)
+	
+	for (int i = 0; i < 8; i++)
 	{
-		std::cout << nono.getRowHint(i);
+		Nonogram* nono =new Nonogram(5, 5, tab);
+		LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nono, false));
 	}
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << nono.getColumnHint(i);
-	}
+
+	LevelManager::getInstance().getLevel(0)->setBeaten(true);
 
 	//////////
 
