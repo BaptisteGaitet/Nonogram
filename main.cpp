@@ -23,7 +23,7 @@ int main()
 	};
 
 	
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < 50; i++)
 	{
 		Nonogram* nono =new Nonogram(5, 5, tab);
 		LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nono, false));
@@ -35,6 +35,7 @@ int main()
 
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Picr-Os");
 	WindowManager::getInstance().initialize(&window);
+	window.setMouseCursorVisible(false);
 
 	MouseManager::getInstance().setWindow(&window);
 	WindowManager::getInstance().updateDisplayArea(window.getSize());
@@ -48,6 +49,11 @@ int main()
 	stateManager.addState(levelSelectState);
 	stateManager.addState(gameState);
 	stateManager.setCurrentStateId(titleState->getId());
+
+	TextureManager::getInstance().addTexture("cursor.png");
+	sf::RectangleShape cursor = sf::RectangleShape(sf::Vector2f(32,32));
+	cursor.setTexture(TextureManager::getInstance().getTexture("cursor.png"));
+	cursor.setTextureRect(sf::IntRect(0, 0, 32, 32));
 
 	while (window.isOpen())
 	{
@@ -68,10 +74,12 @@ int main()
 
 		MouseManager::getInstance().update();
 		stateManager.update();
+		cursor.setPosition(sf::Vector2f(MouseManager::getInstance().getPosition()));
 
 		window.clear();
 		
 		stateManager.draw(&window);
+		window.draw(cursor);
 
 		window.display();
 	}

@@ -77,6 +77,7 @@ void WindowManager::setFullscreen(bool _val)
 		window->create(videoModes.at(0), "Picr-Os", sf::Style::Fullscreen);
 		window->setFramerateLimit(60);
 		fullscreen = true;
+		window->setMouseCursorVisible(false);
 	}
 	else if (!_val && fullscreen)
 	{
@@ -84,6 +85,7 @@ void WindowManager::setFullscreen(bool _val)
 		updateDisplayArea(sf::Vector2u(800,600));
 		window->setFramerateLimit(60);
 		fullscreen = false;
+		window->setMouseCursorVisible(false);
 	}
 }
 
