@@ -65,11 +65,14 @@ void UILevelButton::update()
 
 void UILevelButton::draw(sf::RenderWindow* window)
 {
-	snapToDisplayArea();
-	text.setPosition(shape.getPosition().x + 10, shape.getPosition().y - 4);
+	if (enabled)
+	{
+		snapToDisplayArea();
+		text.setPosition(shape.getPosition().x + 10, shape.getPosition().y - 4);
 
-	window->draw(shape);
-	window->draw(text);
+		window->draw(shape);
+		window->draw(text);
+	}
 }
 
 bool UILevelButton::getClic()
@@ -80,7 +83,7 @@ bool UILevelButton::getClic()
 void UILevelButton::setLevelNumber(int _number)
 {
 	levelNumber = _number;
-	text.setString(std::to_string(levelNumber));
+	text.setString(std::to_string(levelNumber + 1));
 }
 
 int UILevelButton::getLevelNumber()
