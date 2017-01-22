@@ -71,6 +71,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FontManager.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="LevelSelectState.cpp" />
@@ -94,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FontManager.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="LevelSelectState.h" />
