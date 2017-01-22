@@ -8,6 +8,7 @@
 #include "Nonogram.h"
 #include "Level.h"
 #include "LevelManager.h"
+#include "GameState.h"
 
 int main()
 {
@@ -41,9 +42,11 @@ int main()
 	TitleState* titleState = new TitleState();
 	SettingsState* settingsState = new SettingsState();
 	LevelSelectState* levelSelectState = new LevelSelectState();
+	GameState* gameState = new GameState();
 	stateManager.addState(titleState);
 	stateManager.addState(settingsState);
 	stateManager.addState(levelSelectState);
+	stateManager.addState(gameState);
 	stateManager.setCurrentStateId(titleState->getId());
 
 	while (window.isOpen())
