@@ -18,6 +18,7 @@ public:
 	void draw(sf::RenderWindow* window);
 	bool getEnabled();
 	void setEnabled(bool _val);
+	void changeImage(std::string _path);
 
 	~UIImage();
 };
