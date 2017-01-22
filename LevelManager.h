@@ -11,13 +11,14 @@ private:
 	LevelManager(LevelManager &const);
 	void operator=(LevelManager &const);
 
-	std::vector<Level> levels;
+	std::vector<Level*> levels;
 public:
 	static LevelManager& getInstance();
 
-	void addLevel(Level _level);
-	Level getLevel(int index);
+	void addLevel(Level* _level);
+	Level* getLevel(int index);
 	int getLevelCount();
+	bool hasLevel(int _index);
 
 	~LevelManager();
 };

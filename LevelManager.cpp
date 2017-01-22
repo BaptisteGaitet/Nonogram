@@ -11,12 +11,12 @@ LevelManager& LevelManager::getInstance()
 	return instance;
 }
 
-void LevelManager::addLevel(Level _level)
+void LevelManager::addLevel(Level* _level)
 {
 	levels.push_back(_level);
 }
 
-Level LevelManager::getLevel(int index)
+Level* LevelManager::getLevel(int index)
 {
 	return levels.at(index);
 }
@@ -24,6 +24,11 @@ Level LevelManager::getLevel(int index)
 int LevelManager::getLevelCount()
 {
 	return levels.size();
+}
+
+bool LevelManager::hasLevel(int _index)
+{
+	return (_index < levels.size());
 }
 
 LevelManager::~LevelManager()
