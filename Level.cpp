@@ -1,6 +1,6 @@
 #include "Level.h"
 
-Level::Level(std::string _imagePath, std::string _description, Nonogram _nonogram, bool _beaten)
+Level::Level(std::string _imagePath, std::string _description, Nonogram* _nonogram, bool _beaten)
 {
 	imagePath = _imagePath;
 	description = _description;
@@ -28,12 +28,12 @@ void Level::setDescription(std::string _description)
 	description = _description;
 }
 
-Nonogram Level::getNonogram()
+Nonogram* Level::getNonogram()
 {
 	return nonogram;
 }
 
-void Level::setNonogram(Nonogram _nonogram)
+void Level::setNonogram(Nonogram* _nonogram)
 {
 	nonogram = _nonogram;
 }
