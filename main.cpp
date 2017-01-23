@@ -12,20 +12,21 @@
 
 int main()
 {
+	srand(time(NULL));
 	// TEST //
 
 	bool tab[25] = {
-		true, false, true, false, true,
 		false, false, false, false, false,
+		true, false, false, false, true,
 		true, true, true, true, true,
-		true, false, true, true, true,
-		true, false, true, false, true
+		true, false, false, false, true,
+		false, false, false, false, false
 	};
 
 	
 	for (int i = 0; i < 50; i++)
 	{
-		Nonogram* nono =new Nonogram(5, 5, tab);
+		Nonogram* nono = new Nonogram(5, 5, tab);
 		LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nono, false));
 	}
 
@@ -38,7 +39,7 @@ int main()
 	window.setMouseCursorVisible(false);
 
 	MouseManager::getInstance().setWindow(&window);
-	WindowManager::getInstance().updateDisplayArea(window.getSize());
+	WindowManager::getInstance().updateDisplayArea(window.getSize(), sf::Vector2i(0,0));
 	StateManager stateManager;
 	TitleState* titleState = new TitleState();
 	SettingsState* settingsState = new SettingsState();
@@ -68,11 +69,12 @@ int main()
 			{
 				sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
 				window.setView(sf::View(visibleArea));
-				WindowManager::getInstance().updateDisplayArea(window.getSize());
+				WindowManager::getInstance().updateDisplayArea(window.getSize(), sf::Vector2i(0,0));
 			}
 		}
 
 		MouseManager::getInstance().update();
+		WindowManager::getInstance().update();
 		stateManager.update();
 		cursor.setPosition(sf::Vector2f(MouseManager::getInstance().getPosition()));
 
