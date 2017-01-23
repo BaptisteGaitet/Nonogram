@@ -20,7 +20,39 @@ void WindowManager::initialize(sf::Window* _window)
 	window->setFramerateLimit(60);
 }
 
-void WindowManager::updateDisplayArea(sf::Vector2u screensize)
+void WindowManager::update()
+{
+	if (shakeTimer > 0 && shakeTimer % 2 == 0)
+	{
+		sf::Vector2i offset;
+		int random = rand() % 4 + 1;
+		switch (random)
+		{
+		case 1:
+			offset.x += SHAKE_INTENSITY;
+			break;
+		case 2:
+			offset.x -= SHAKE_INTENSITY;
+			break;
+		case 3:
+			offset.y += SHAKE_INTENSITY;
+			break;
+		case 4:
+			offset.y -= SHAKE_INTENSITY;
+			break;
+		}
+
+		updateDisplayArea(screenSize, offset);
+		shakeTimer--;
+	}
+	else if (shakeTimer > 0)
+	{
+		updateDisplayArea(screenSize, sf::Vector2i(0, 0));
+		shakeTimer--;
+	}
+}
+
+void WindowManager::updateDisplayArea(sf::Vector2u screensize, sf::Vector2i offset)
 {
 	screenSize = screensize;
 	if (screensize.x > screensize.y)
@@ -28,8 +60,8 @@ void WindowManager::updateDisplayArea(sf::Vector2u screensize)
 		stretchRatio = (float)((float)screensize.y / (float)BASE_SCREEN_SIZE.y);
 		displayArea.width = BASE_SCREEN_SIZE.x * stretchRatio;
 		displayArea.height = BASE_SCREEN_SIZE.y * stretchRatio;
-		displayArea.left = (float)(screensize.x - displayArea.width) / 2;
-		displayArea.top = 0;
+		displayArea.left = (float)(screensize.x - displayArea.width) / 2 + offset.x;
+		displayArea.top = 0 + offset.y;
 	}
 	else
 	{
@@ -37,8 +69,8 @@ void WindowManager::updateDisplayArea(sf::Vector2u screensize)
 
 		displayArea.width = BASE_SCREEN_SIZE.x * stretchRatio;
 		displayArea.height = BASE_SCREEN_SIZE.y * stretchRatio;
-		displayArea.left = 0;
-		displayArea.top = (float)(screensize.y - displayArea.height) / 2;
+		displayArea.left = 0 + offset.x;
+		displayArea.top = (float)(screensize.y - displayArea.height) / 2 + offset.y;
 	}
 	
 }
@@ -73,7 +105,7 @@ void WindowManager::setFullscreen(bool _val)
 	if (_val && !fullscreen)
 	{
 		sf::Vector2u size = sf::Vector2u(videoModes.at(0).width, videoModes.at(0).height);
-		updateDisplayArea(size);
+		updateDisplayArea(size, sf::Vector2i(0, 0));
 		window->create(videoModes.at(0), "Picr-Os", sf::Style::Fullscreen);
 		window->setFramerateLimit(60);
 		fullscreen = true;
@@ -82,7 +114,7 @@ void WindowManager::setFullscreen(bool _val)
 	else if (!_val && fullscreen)
 	{
 		window->create(sf::VideoMode(800, 600), "Picr-Os");
-		updateDisplayArea(sf::Vector2u(800,600));
+		updateDisplayArea(sf::Vector2u(800,600), sf::Vector2i(0,0));
 		window->setFramerateLimit(60);
 		fullscreen = false;
 		window->setMouseCursorVisible(false);
@@ -92,6 +124,11 @@ void WindowManager::setFullscreen(bool _val)
 bool WindowManager::getFullscreen()
 {
 	return fullscreen;
+}
+
+void WindowManager::screenShake(int _duration)
+{
+	shakeTimer = _duration;
 }
 
 WindowManager::~WindowManager()
