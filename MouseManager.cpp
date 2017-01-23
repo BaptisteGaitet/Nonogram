@@ -52,22 +52,35 @@ bool MouseManager::isRightDown()
 
 bool MouseManager::leftPush()
 {
-	return (currentLeftDown && !lastLeftDown);
+	bool res = ((currentLeftDown == true) && (lastLeftDown == false));
+	//if (res)
+		//std::cout << "leftPush\n";
+	return res;
 }
 
 bool MouseManager::rightPush()
 {
-	return (currentRightDown && !lastRightDown);
+	bool res = ((currentRightDown == true) && (lastRightDown == false));
+	//if (res)
+		//std::cout << "rightPush\n";
+	return res;
 }
 
 bool MouseManager::leftRelease()
 {
-	return (!currentLeftDown && lastLeftDown);
+
+	bool res = ((currentLeftDown == false) && (lastLeftDown == true));
+	//if (res)
+		//std::cout << "leftRelease\n";
+	return res;
 }
 
 bool MouseManager::rightRelease()
 {
-	return (!currentRightDown && lastRightDown);
+	bool res = ((currentRightDown == false) && (lastRightDown == true));
+	//if (res)
+		//std::cout << "rightRelease\n";
+	return res;
 }
 
 sf::Vector2i MouseManager::getPosition()

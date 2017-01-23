@@ -2,6 +2,7 @@
 #define MOUSE_MANAGER_H
 
 #include <SFML\Graphics.hpp>
+#include <iostream>
 
 class MouseManager
 {
