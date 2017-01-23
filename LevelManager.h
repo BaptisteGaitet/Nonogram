@@ -12,6 +12,7 @@ private:
 	void operator=(LevelManager &const);
 
 	std::vector<Level*> levels;
+	int selectedLevel;
 public:
 	static LevelManager& getInstance();
 
@@ -19,6 +20,8 @@ public:
 	Level* getLevel(int index);
 	int getLevelCount();
 	bool hasLevel(int _index);
+	void setSelectedLevel(int _index);
+	int getSelectedLevel();
 
 	~LevelManager();
 };

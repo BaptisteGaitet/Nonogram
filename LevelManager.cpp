@@ -3,6 +3,7 @@
 
 LevelManager::LevelManager()
 {
+	selectedLevel = 0;
 }
 
 LevelManager& LevelManager::getInstance()
@@ -29,6 +30,17 @@ int LevelManager::getLevelCount()
 bool LevelManager::hasLevel(int _index)
 {
 	return (_index < levels.size());
+}
+
+void LevelManager::setSelectedLevel(int _index)
+{
+	if (hasLevel(_index))
+		selectedLevel = _index;
+}
+
+int LevelManager::getSelectedLevel()
+{
+	return selectedLevel;
 }
 
 LevelManager::~LevelManager()
