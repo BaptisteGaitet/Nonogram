@@ -90,6 +90,7 @@
     <ClCompile Include="UIImage.cpp" />
     <ClCompile Include="UILabel.cpp" />
     <ClCompile Include="UILevelButton.cpp" />
+    <ClCompile Include="UINonogramCell.cpp" />
     <ClCompile Include="UISlider.cpp" />
     <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
@@ -113,6 +114,7 @@
     <ClInclude Include="UIImage.h" />
     <ClInclude Include="UILabel.h" />
     <ClInclude Include="UILevelButton.h" />
+    <ClInclude Include="UINonogramCell.h" />
     <ClInclude Include="UISlider.h" />
     <ClInclude Include="WindowManager.h" />
   </ItemGroup>
