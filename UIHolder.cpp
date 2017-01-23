@@ -27,6 +27,14 @@ void UIHolder::addUIElement(UIElement* _uielement)
 	sortDrawOrderVector();
 }
 
+void UIHolder::deleteUIElement(std::string _id)
+{
+	if (hasUIElement(_id))
+	{
+		elements.erase(_id);
+	}
+}
+
 UIElement* UIHolder::getUIElement(std::string _id)
 {
 	UIElement* res = nullptr;
