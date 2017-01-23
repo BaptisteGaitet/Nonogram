@@ -59,6 +59,12 @@ void LevelSelectState::update()
 		setNextStateId("title");
 	}
 
+	UIButton* btnSolve = (UIButton*)uiholder.getUIElement("btn_solve");
+	if (btnSolve->getClic())
+	{
+		setNextStateId("game");
+	}
+
 	for (int i = 0; i < 9; i++)
 	{
 		std::string btnId = "lvlButton" + std::to_string(i);
@@ -66,6 +72,7 @@ void LevelSelectState::update()
 		if (btn->getClic())
 		{
 			selectedLevel = btn->getLevelNumber();
+			LevelManager::getInstance().setSelectedLevel(btn->getLevelNumber());
 			btn->setSelected(true);
 			updateLevelInfo();
 		}
