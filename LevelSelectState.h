@@ -16,6 +16,7 @@ private:
 	
 	int selectedLevel;
 	int currentPage;
+	bool focus;
 
 	void updateLevelInfo();
 	void updateLevelButtons();

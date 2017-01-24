@@ -5,6 +5,7 @@ LevelSelectState::LevelSelectState() : State("levelselect")
 {
 	selectedLevel = 0;
 	currentPage = 0;
+	focus = false;
 
 	// TEST //
 	sf::Vector2i buttonMargin = sf::Vector2i(120, 120);
@@ -51,18 +52,26 @@ LevelSelectState::LevelSelectState() : State("levelselect")
 
 void LevelSelectState::update()
 {
+	if (!focus)
+	{
+		focus = true;
+		updateLevelInfo();
+	}
+
 	uiholder.update();
 
 	UIButton* btnBack = (UIButton*)uiholder.getUIElement("btn_back");
 	if (btnBack->getClic())
 	{
 		setNextStateId("title");
+		focus = false;
 	}
 
 	UIButton* btnSolve = (UIButton*)uiholder.getUIElement("btn_solve");
 	if (btnSolve->getClic())
 	{
 		setNextStateId("game");
+		focus = false;
 	}
 
 	for (int i = 0; i < 9; i++)
