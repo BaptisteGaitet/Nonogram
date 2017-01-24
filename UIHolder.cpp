@@ -42,7 +42,6 @@ void UIHolder::deleteUIElement(std::string _id)
 			}
 		}
 		delete element;
-		std::cout << "Erased " + _id + "\n";
 	}
 }
 
