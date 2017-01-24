@@ -126,6 +126,14 @@ void UINonogramCell::update()
 	{
 		shape.setTextureRect(sf::IntRect(rectTex.width * 6, 0, rectTex.width, rectTex.height));
 	}
+	else if (state == black)
+	{
+		shape.setTextureRect(sf::IntRect(rectTex.width * 7, 0, rectTex.width, rectTex.height));
+	}
+	else if (state == white)
+	{
+		shape.setTextureRect(sf::IntRect(rectTex.width * 8, 0, rectTex.width, rectTex.height));
+	}
 }
 
 void UINonogramCell::draw(sf::RenderWindow* window)
@@ -139,11 +147,45 @@ void UINonogramCell::setFilled(bool _filled)
 	filled = _filled;
 }
 
+bool UINonogramCell::getFilled()
+{
+	return filled;
+}
+
+bool UINonogramCell::isFound()
+{
+	return (state == ground);
+}
+
 bool UINonogramCell::getMistake()
 {
 	bool res = mistake;
 	mistake = false;
 	return res;
+}
+
+void UINonogramCell::setBlackWhite(bool _val)
+{
+	if (_val)
+	{
+		if (filled)
+		{
+			state = black;
+		}
+		else
+		{
+			state = white;
+		}
+	}
+	else
+	{
+		state = grassIdle;
+	}
+}
+
+bool UINonogramCell::isBlackWhite()
+{
+	return (state == black || state == white);
 }
 
 UINonogramCell::~UINonogramCell()

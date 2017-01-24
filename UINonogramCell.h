@@ -19,7 +19,11 @@ public:
 	void update();
 	void draw(sf::RenderWindow* window);
 	void setFilled(bool _filled);
+	bool getFilled();
+	bool isFound();
 	bool getMistake();
+	void setBlackWhite(bool _val);
+	bool isBlackWhite();
 
 	~UINonogramCell();
 };
