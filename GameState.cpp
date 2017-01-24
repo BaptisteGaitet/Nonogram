@@ -2,10 +2,14 @@
 
 GameState::GameState() : State("game")
 {
+	focus = false;
 	timer = LEVEL_TIME;
+	victoryTimer = VICTORY_TIME;
 	currentLevel = 0;
 	level = LevelManager::getInstance().getLevel(0);
-	initCells();
+	solved = false;
+	failed = false;
+	cellChangeTimer = CELL_CHANGE_TIME;
 
 	UIBackground* bg = new UIBackground("background", 0, "bg2.png");
 	uiholder.addUIElement(bg);
@@ -32,24 +36,48 @@ GameState::GameState() : State("game")
 	UIButton* btnNo = new UIButton("btn_no", sf::IntRect(450, 350, 64, 64), 4, "btnNo.png");
 	btnNo->setEnabled(false);
 	uiholder.addUIElement(btnNo);
+	UIButton* btnEndBack = new UIButton("btn_end_back", sf::IntRect(450, 350, 64, 64), 4, "btn4.png");
+	btnEndBack->setEnabled(false);
+	uiholder.addUIElement(btnEndBack);
+
+	uiholder.addUIElement(btnNo);
+
+	initCells();
 }
 
 void GameState::update()
 {
+	UIButton* btnBack = (UIButton*)uiholder.getUIElement("btn_back");
+
+	UIImage* imgWarning = (UIImage*)uiholder.getUIElement("img_warning");
+	UILabel* lblWarning = (UILabel*)uiholder.getUIElement("lbl_warning");
+	UIButton* btnYes = (UIButton*)uiholder.getUIElement("btn_yes");
+	UIButton* btnNo = (UIButton*)uiholder.getUIElement("btn_no");
+	UIButton* btnEndBack = (UIButton*)uiholder.getUIElement("btn_end_back");
+
+	UILabel* lblTimer = (UILabel*)uiholder.getUIElement("lbl_timer");
+
 	uiholder.update();
 
-	if (!warning)
+	if (!focus)
 	{
-		UIButton* btnBack = (UIButton*)uiholder.getUIElement("btn_back");
+		timer = LEVEL_TIME;
+		victoryTimer = VICTORY_TIME;
+		setLevel(LevelManager::getInstance().getLevel(currentLevel));
+		focus = true;
+		solved = false;
+		failed = false;
+		warning = false;
+	}
 
-		UIImage* imgWarning = (UIImage*)uiholder.getUIElement("img_warning");
-		UILabel* lblWarning = (UILabel*)uiholder.getUIElement("lbl_warning");
-		UIButton* btnYes = (UIButton*)uiholder.getUIElement("btn_yes");
-		UIButton* btnNo = (UIButton*)uiholder.getUIElement("btn_no");
+	if (!warning  && !solved && !failed)
+	{
+		
 		if (btnBack->getClic())
 		{
 			warning = true;
 
+			lblWarning->setString("Are you sure ?");
 			imgWarning->setEnabled(true);
 			lblWarning->setEnabled(true);
 			btnYes->setEnabled(true);
@@ -62,6 +90,7 @@ void GameState::update()
 			setLevel(LevelManager::getInstance().getLevel(currentLevel));
 		}
 
+		solved = true;
 		for (int i = 0; i < level->getNonogram()->getWidth(); i++)
 		{
 			for (int j = 0; j < level->getNonogram()->getHeight(); j++)
@@ -73,10 +102,14 @@ void GameState::update()
 					WindowManager::getInstance().screenShake(10);
 					timer /= 2;
 				}
+				if (cell->getFilled() && !cell->isFound())
+				{
+					solved = false;
+				}
 			}
 		}
 
-		UILabel* lblTimer = (UILabel*)uiholder.getUIElement("lbl_timer");
+		
 		std::string minutes = std::to_string(timer / 3600);
 		std::string seconds = std::to_string(timer % 3600 / 60);
 		if (minutes.size() < 2)
@@ -89,13 +122,24 @@ void GameState::update()
 			seconds = "00";
 		lblTimer->setString(minutes + " : " + seconds);
 		timer--;
+
+		// TMP EXIT //
+		if (timer <= 0)
+		{
+			
+			failed = true;
+			warning = true;
+
+			lblWarning->setString("Time's up !");
+			lblWarning->setEnabled(true);
+			imgWarning->setEnabled(true);
+			btnEndBack->setEnabled(true);
+
+		}
+		//////////////
 	}
-	else
+	else if (warning && !solved && !failed)
 	{
-		UIButton* btnYes = (UIButton*)uiholder.getUIElement("btn_yes");
-		UIButton* btnNo = (UIButton*)uiholder.getUIElement("btn_no");
-		UIImage* imgWarning = (UIImage*)uiholder.getUIElement("img_warning");
-		UILabel* lblWarning = (UILabel*)uiholder.getUIElement("lbl_warning");
 		if (btnYes->getClic())
 		{
 			imgWarning->setEnabled(false);
@@ -104,6 +148,7 @@ void GameState::update()
 			btnNo->setEnabled(false);
 			warning = false;
 			setNextStateId("levelselect");
+			focus = false;
 		}
 		else if (btnNo->getClic())
 		{
@@ -112,6 +157,62 @@ void GameState::update()
 			btnYes->setEnabled(false);
 			btnNo->setEnabled(false);
 			warning = false;
+		}
+	}
+	else if (warning && (failed || solved))
+	{
+		if (btnEndBack->getClic())
+		{
+			imgWarning->setEnabled(false);
+			lblWarning->setEnabled(false);
+			btnEndBack->setEnabled(false);
+			setNextStateId("levelselect");
+			warning = false;
+			focus = false;
+		}
+	}
+	else if (solved)
+	{
+		if (cellChangeTimer <= 0)
+		{
+			bool changed = false;
+			for (int i = 0; i < level->getNonogram()->getWidth(); i++)
+			{
+				for (int j = 0; j < level->getNonogram()->getHeight(); j++)
+				{
+					if (!changed)
+					{
+						std::string name = "cell" + std::to_string(i * level->getNonogram()->getWidth() + j);
+						UINonogramCell* cell = (UINonogramCell*)uiholder.getUIElement(name);
+						if (!cell->isBlackWhite())
+						{
+							cell->setBlackWhite(true);
+							changed = true;
+						}
+					}
+				}
+			}
+			if (!changed)
+			{
+				if (victoryTimer >= 0)
+				{
+					victoryTimer--;
+				}
+				else
+				{
+					level->setBeaten(true);
+					lblWarning->setString("Solved !");
+					lblWarning->setEnabled(true);
+					imgWarning->setEnabled(true);
+					btnEndBack->setEnabled(true);
+					warning = true;
+				}
+			}
+			cellChangeTimer = CELL_CHANGE_TIME;
+		}
+		else
+		{
+			cellChangeTimer--;
 		}
 	}
 }
@@ -133,8 +234,25 @@ void GameState::initCells()
 	timer = LEVEL_TIME;
 
 	sf::Vector2i cellsMargin = sf::Vector2i(0, 0);
-	cellsMargin.x = 400 - ((CELL_SIZE * level->getNonogram()->getWidth()) / 2);
-	cellsMargin.y = 300 - ((CELL_SIZE * level->getNonogram()->getHeight()) / 2);
+	if (level->getNonogram()->getWidth() == 5)
+	{
+		cellsMargin.x = 450 - ((CELL_SIZE * level->getNonogram()->getWidth()) / 4);
+		cellsMargin.y = 300 - ((CELL_SIZE * level->getNonogram()->getHeight()) / 4);
+	}
+	else if (level->getNonogram()->getWidth() == 10)
+	{
+		cellsMargin.x = 450 - ((CELL_SIZE * level->getNonogram()->getWidth()) / 4);
+		cellsMargin.y = 300 - ((CELL_SIZE * level->getNonogram()->getHeight()) / 4);
+	}
+	else
+	{
+		cellsMargin.x = 450 - ((CELL_SIZE * level->getNonogram()->getWidth()) / 4);
+		cellsMargin.y = 300 - ((CELL_SIZE * level->getNonogram()->getHeight()) / 5);
+	}
+
+	UILabel* lblTimer = (UILabel*)uiholder.getUIElement("lbl_timer");
+	lblTimer->setPosition(sf::Vector2f(cellsMargin.x - 100, cellsMargin.y - 50));
+
 	for (int i = 0; i < level->getNonogram()->getWidth(); i++)
 	{
 		for (int j = 0; j < level->getNonogram()->getHeight(); j++)
@@ -153,7 +271,7 @@ void GameState::initCells()
 	{
 		std::string name = "lbl_hint_hor_" + std::to_string(i);
 		std::string content = level->getNonogram()->getRowHint(i);
-		UILabel* lblHint = new UILabel(name, sf::Vector2f(cellsMargin.x - 8, (i * CELL_SIZE) + cellsMargin.y - 14), CELL_SIZE, 2, content);
+		UILabel* lblHint = new UILabel(name, sf::Vector2f(cellsMargin.x - 8, (i * CELL_SIZE) + cellsMargin.y - 14), 24, 2, content);
 		lblHint->setPosition(sf::Vector2f(lblHint->getPosition().x - lblHint->getTextBounds().width, lblHint->getPosition().y));
 		uiholder.addUIElement(lblHint);
 	}
@@ -162,7 +280,7 @@ void GameState::initCells()
 	{
 		std::string name = "lbl_hint_ver_" + std::to_string(i);
 		std::string content = level->getNonogram()->getColumnHint(i);
-		UILabel* lblHint = new UILabel(name, sf::Vector2f((i * CELL_SIZE) + cellsMargin.x + 6, cellsMargin.y - 24), CELL_SIZE, 2, content);
+		UILabel* lblHint = new UILabel(name, sf::Vector2f((i * CELL_SIZE) + cellsMargin.x + 6, cellsMargin.y - 24), 24, 2, content);
 		lblHint->setPosition(sf::Vector2f(lblHint->getPosition().x, lblHint->getPosition().y - lblHint->getTextBounds().height));
 		uiholder.addUIElement(lblHint);
 	}
