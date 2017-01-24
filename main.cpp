@@ -14,56 +14,38 @@ int main()
 {
 	srand(time(NULL));
 	// TEST //
+	bool tabShovel[25] = {
+		false, true, true, true, false,
+		false, true, true, true, false,
+		false, false, true, false, false,
+		false, false, true, false, false,
+		false, false, true, false, false
+	};
 
-	bool tab[25] = {
+	Nonogram* nonoShovel = new Nonogram(5, 5, tabShovel);
+	LevelManager::getInstance().addLevel(new Level("shovelSketch.png", "Your own shovel, your should\nbe a little more carefull with\nyour tools.", nonoShovel, false));
+
+	bool tabRock[25] = {
+		false, false, false, false, false,
+		false, true, true, false, false,
+		true, true, true, true, false,
+		true, true, true, true, true,
+		false, true, true, true, false
+	};
+
+	Nonogram* nonoRock = new Nonogram(5, 5, tabRock);
+	LevelManager::getInstance().addLevel(new Level("rockSketch.png", "This is just a rock, you could\ndo better.", nonoRock, false));
+
+	bool tabBone[25] = {
 		false, false, false, false, false,
 		true, false, false, false, true,
-		true, true, true, true, true,
+		false, true, true, true, false,
 		true, false, false, false, true,
 		false, false, false, false, false
 	};
 
-	bool tabbis[100] = {
-		false, false, false, false, false, false, false, false, false, false,
-		false, false, false, true, true, true, true, true, false, false,
-		false, false, true, true, true, true, true, true, true, false,
-		false, true, true, true, true, false, true, false, true, false,
-		false, true, true, true, true, true, true, true, true, false,
-		false, false, true, true, false, false, false, false, false, false,
-		false, true, true, true, false, false, false, false, false, false,
-		true, true, false, true, true, true, true, true, true, false,
-		true, true, false, false, false, false, false, false, false, false,
-		true, false, false, false, false, false, false, false, false, false
-	};
-
-	bool tabter[15*15] = {
-		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
-		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
-		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
-		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
-		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
-		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
-		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
-		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
-		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false
-	};
-
-	
-	
-	Nonogram* nono = new Nonogram(5, 5, tab);
-	LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nono, false));
-
-	Nonogram* nonobis = new Nonogram(10, 10, tabbis);
-	LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nonobis, false));
-
-	Nonogram* nonoter = new Nonogram(15, 15, tabter);
-	LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nonoter, false));
+	Nonogram* nonoBone = new Nonogram(5, 5, tabBone);
+	LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nonoBone, false));
 
 	//////////
 
