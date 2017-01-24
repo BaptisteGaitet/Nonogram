@@ -57,8 +57,7 @@ int main()
 	
 	
 	Nonogram* nono = new Nonogram(5, 5, tab);
-	LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nono, true));
-	//LevelManager::getInstance().getLevel(0)->setBeaten(true);
+	LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nono, false));
 
 	Nonogram* nonobis = new Nonogram(10, 10, tabbis);
 	LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nonobis, false));
