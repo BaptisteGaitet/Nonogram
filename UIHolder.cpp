@@ -29,9 +29,20 @@ void UIHolder::addUIElement(UIElement* _uielement)
 
 void UIHolder::deleteUIElement(std::string _id)
 {
+	UIElement* element;
 	if (hasUIElement(_id))
 	{
+		element = getUIElement(_id);
 		elements.erase(_id);
+		for (int i = 0; i < drawingQueue.size(); i++)
+		{
+			if (drawingQueue.at(i) == element)
+			{
+				drawingQueue.erase(drawingQueue.begin() + i);
+			}
+		}
+		delete element;
+		std::cout << "Erased " + _id + "\n";
 	}
 }
 

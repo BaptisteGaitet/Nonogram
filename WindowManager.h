@@ -9,7 +9,7 @@ const sf::Vector2i BASE_SCREEN_SIZE = sf::Vector2i(800,600);
 class WindowManager
 {
 private:
-	const int SHAKE_INTENSITY = 2;
+	const int SHAKE_INTENSITY = 4;
 
 	WindowManager();
 	WindowManager(WindowManager const&);

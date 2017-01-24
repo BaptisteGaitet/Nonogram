@@ -39,7 +39,7 @@ LevelSelectState::LevelSelectState() : State("levelselect")
 	uiholder.addUIElement(imgFrame);
 	UIImage* imgSketch = new UIImage("img_sketch", sf::IntRect(400, 60, 300, 300), 2, "unknownSketch.png");
 	uiholder.addUIElement(imgSketch);
-	UILabel* lblDescription = new UILabel("lbl_description", sf::IntRect(420, 360, 100, 24), 2, "Unknown.");
+	UILabel* lblDescription = new UILabel("lbl_description", sf::Vector2f(420, 360), 24, 2, "Unknown.");
 	uiholder.addUIElement(lblDescription);
 	UIButton* btnSolve = new UIButton("btn_solve", sf::IntRect(550, 500, 128, 64), 2, "btnSolve.png");
 	uiholder.addUIElement(btnSolve);

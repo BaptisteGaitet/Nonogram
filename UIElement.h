@@ -24,6 +24,10 @@ public:
 
 	virtual void update() = 0;
 	virtual void draw(sf::RenderWindow* window) = 0;
+	void setPosition(sf::Vector2f _position);
+	sf::Vector2f getPosition();
+	void setSize(sf::Vector2f _size);
+	sf::Vector2f getSize();
 
 	~UIElement();
 };

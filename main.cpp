@@ -23,14 +23,48 @@ int main()
 		false, false, false, false, false
 	};
 
-	
-	for (int i = 0; i < 50; i++)
-	{
-		Nonogram* nono = new Nonogram(5, 5, tab);
-		LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nono, false));
-	}
+	bool tabbis[100] = {
+		false, false, false, false, false, false, false, false, false, false,
+		false, false, false, true, true, true, true, true, false, false,
+		false, false, true, true, true, true, true, true, true, false,
+		false, true, true, true, true, false, true, false, true, false,
+		false, true, true, true, true, true, true, true, true, false,
+		false, false, true, true, false, false, false, false, false, false,
+		false, true, true, true, false, false, false, false, false, false,
+		true, true, false, true, true, true, true, true, true, false,
+		true, true, false, false, false, false, false, false, false, false,
+		true, false, false, false, false, false, false, false, false, false
+	};
 
-	LevelManager::getInstance().getLevel(0)->setBeaten(true);
+	bool tabter[15*15] = {
+		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
+		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
+		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
+		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
+		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
+		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
+		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false,
+		true, false, true, false, true, false, true, false, true, false, true, false, true, false, true,
+		false, true, false, true, false, true, false, true, false, true, false, true, false, true, false
+	};
+
+	
+	
+	Nonogram* nono = new Nonogram(5, 5, tab);
+	LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nono, true));
+	//LevelManager::getInstance().getLevel(0)->setBeaten(true);
+
+	Nonogram* nonobis = new Nonogram(10, 10, tabbis);
+	LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nonobis, false));
+
+	Nonogram* nonoter = new Nonogram(15, 15, tabter);
+	LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nonoter, false));
 
 	//////////
 

@@ -14,6 +14,8 @@ class GameState :
 	public State
 {
 private:
+	const int LEVEL_TIME = 108000;
+	const int CELL_SIZE = 24;
 	bool warning;
 	Level* level;
 	int currentLevel;

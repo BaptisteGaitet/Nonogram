@@ -34,6 +34,34 @@ void UIElement::snapToDisplayArea()
 	shape.setSize(newSize);
 }
 
+void UIElement::setPosition(sf::Vector2f _position)
+{
+	bounds.left = _position.x;
+	bounds.top = _position.y;
+}
+
+sf::Vector2f UIElement::getPosition()
+{
+	sf::Vector2f res;
+	res.x = bounds.left;
+	res.y = bounds.top;
+	return res;
+}
+
+void UIElement::setSize(sf::Vector2f _size)
+{
+	bounds.width = _size.x;
+	bounds.height = _size.y;
+}
+
+sf::Vector2f UIElement::getSize()
+{
+	sf::Vector2f res;
+	res.x = bounds.width;
+	res.y = bounds.height;
+	return res;
+}
+
 UIElement::~UIElement()
 {
 }

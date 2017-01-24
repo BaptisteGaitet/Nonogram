@@ -73,7 +73,11 @@ std::string Nonogram::getRowHint(int _row)
 		}else{
 			if (consecutiveCell > 0)
 			{
-				res += std::to_string(consecutiveCell) + " ";
+				if (res.size() > 0)
+				{
+					res += " ";
+				}
+				res += std::to_string(consecutiveCell);
 				consecutiveCell = 0;
 			}
 		}
@@ -82,16 +86,18 @@ std::string Nonogram::getRowHint(int _row)
 		{
 			if (consecutiveCell > 0)
 			{
-				res += std::to_string(consecutiveCell) + " ";
+				if (res.size() > 0)
+				{
+					res += " ";
+				}
+				res += std::to_string(consecutiveCell);
 			}
 			else if (res.size() == 0)
 			{
 				res += "0";
 			}
-			res += "\n";
 		}
 	}
-
 	return res;
 }
 
@@ -109,7 +115,11 @@ std::string Nonogram::getColumnHint(int _column)
 		else{
 			if (consecutiveCell > 0)
 			{
-				res += std::to_string(consecutiveCell) + " ";
+				if (res.size() > 0)
+				{
+					res += "\n";
+				}
+				res += std::to_string(consecutiveCell);
 				consecutiveCell = 0;
 			}
 		}
@@ -118,16 +128,19 @@ std::string Nonogram::getColumnHint(int _column)
 		{
 			if (consecutiveCell > 0)
 			{
-				res += std::to_string(consecutiveCell) + " ";
+				if (res.size() > 0)
+				{
+					res += "\n";
+				}
+				res += std::to_string(consecutiveCell);
 			}
 			else if (res.size() == 0)
 			{
 				res += "0";
 			}
-			res += "\n";
+			//res += "\n";
 		}
 	}
-
 	return res;
 }
 
