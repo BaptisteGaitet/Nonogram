@@ -65,14 +65,16 @@ bool AudioManager::hasMusic(std::string _id)
 
 void AudioManager::addSound(std::string _id)
 {
-	buffers.insert(std::pair<std::string, sf::SoundBuffer>(_id, sf::SoundBuffer()));
-	if (!buffers.at(_id).loadFromFile(_id))
+	if (!hasSound(_id))
 	{
-		std::cout << "AudioManager buffer: File not found: " + _id + "\n";
+		buffers.insert(std::pair<std::string, sf::SoundBuffer>(_id, sf::SoundBuffer()));
+		if (!buffers.at(_id).loadFromFile(_id))
+		{
+			std::cout << "AudioManager buffer: File not found: " + _id + "\n";
+		}
+		sounds.insert(std::pair<std::string, sf::Sound>(_id, sf::Sound()));
+		sounds.at(_id).setBuffer(buffers.at(_id));
 	}
-	sounds.insert(std::pair<std::string, sf::Sound>(_id, sf::Sound()));
-	sounds.at(_id).setBuffer(buffers.at(_id));
-
 }
 
 void AudioManager::playSound(std::string _id)
@@ -93,10 +95,13 @@ void AudioManager::stopSound(std::string _id)
 
 void AudioManager::addMusic(std::string _id)
 {
-	musics.insert(std::pair<std::string, sf::Music>(_id, sf::Music()));
-	if (!musics.at(_id).openFromFile(_id))
+	if (!hasMusic(_id))
 	{
-		std::cout << "AudioManager buffer: File not found: " + _id + "\n";
+		musics.insert(std::pair<std::string, sf::Music>(_id, sf::Music()));
+		if (!musics.at(_id).openFromFile(_id))
+		{
+			std::cout << "AudioManager buffer: File not found: " + _id + "\n";
+		}
 	}
 }
 
