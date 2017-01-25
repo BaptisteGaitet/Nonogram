@@ -97,11 +97,12 @@ void AudioManager::addMusic(std::string _id)
 {
 	if (!hasMusic(_id))
 	{
-		musics.insert(std::pair<std::string, sf::Music>(_id, sf::Music()));
-		if (!musics.at(_id).openFromFile(_id))
+		sf::Music* music = new sf::Music();
+		if (!music->openFromFile(_id))
 		{
 			std::cout << "AudioManager buffer: File not found: " + _id + "\n";
 		}
+		musics.insert(std::pair<std::string, sf::Music*>(_id, music));
 	}
 }
 
@@ -109,7 +110,7 @@ void AudioManager::playMusic(std::string _id)
 {
 	if (hasMusic(_id))
 	{
-		musics.at(_id).play();
+		musics.at(_id)->play();
 	}
 }
 
@@ -117,7 +118,7 @@ void AudioManager::stopMusic(std::string _id)
 {
 	if (hasMusic(_id))
 	{
-		musics.at(_id).stop();
+		musics.at(_id)->stop();
 	}
 }
 

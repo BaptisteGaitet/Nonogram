@@ -14,7 +14,7 @@ private:
 
 	std::map <std::string, sf::SoundBuffer> buffers;
 	std::map <std::string, sf::Sound> sounds;
-	std::map <std::string, sf::Music> musics;
+	std::map <std::string, sf::Music*> musics;
 
 	bool hasSound(std::string _id);
 	bool hasMusic(std::string _id);
