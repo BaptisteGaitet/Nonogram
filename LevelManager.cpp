@@ -121,6 +121,96 @@ void LevelManager::loadLevels()
 	file.close();
 }
 
+void LevelManager::saveProgress()
+{
+	std::ofstream file;
+	std::string line;
+	file.open(SAVE_FILE, std::ios::trunc);
+
+	if (file.is_open())
+	{
+		line = "";
+		for (int i = 0; i < getLevelCount(); i++)
+		{
+			if (getLevel(i)->getBeaten())
+			{
+				line += '1';
+			}
+			else
+			{
+				line += '0';
+			}
+		}
+		file << line;
+	}
+	else
+	{
+		std::cout << "LevelManager: Can't open file: " + SAVE_FILE + "\n";
+	}
+
+	file.close();
+}
+
+void LevelManager::loadProgress()
+{
+	std::ifstream file;
+	std::string line;
+	file.open(SAVE_FILE);
+
+	if (file.is_open())
+	{
+		std::getline(file, line);
+		for (int i = 0; i < levels.size(); i++)
+		{
+			if (line.size()>i)
+			{
+				if (line.at(i) == '0')
+				{
+					levels.at(i)->setBeaten(false);
+				}
+				else if (line.at(i) == '1')
+				{
+					levels.at(i)->setBeaten(true);
+				}
+			}
+			else
+			{
+				levels.at(i)->setBeaten(false);
+			}
+			
+		}
+	}
+	else
+	{
+		std::cout << "LevelManager: Can't open file: " + SAVE_FILE + "\n";
+	}
+
+	file.close();
+}
+
+void LevelManager::resetProgress()
+{
+	std::ofstream file;
+	std::string line;
+	file.open(SAVE_FILE, std::ios::trunc);
+
+	if (file.is_open())
+	{
+		line = "";
+		for (int i = 0; i < getLevelCount(); i++)
+		{
+			line += '0';
+		}
+		file << line;
+	}
+	else
+	{
+		std::cout << "LevelManager: Can't open file: " + SAVE_FILE + "\n";
+	}
+
+	file.close();
+}
+
 LevelManager::~LevelManager()
 {
 }

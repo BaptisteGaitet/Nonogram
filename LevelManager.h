@@ -9,6 +9,7 @@ class LevelManager
 {
 private:
 	const std::string LEVELS_FILE = "nonograms.txt";
+	const std::string SAVE_FILE = "save.txt";
 
 	LevelManager();
 	LevelManager(LevelManager &const);
@@ -27,6 +28,9 @@ public:
 	int getSelectedLevel();
 
 	void loadLevels();
+	void saveProgress();
+	void loadProgress();
+	void resetProgress();
 
 	~LevelManager();
 };
