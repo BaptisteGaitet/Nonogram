@@ -15,6 +15,7 @@ int main()
 	srand(time(NULL));
 	
 	LevelManager::getInstance().loadLevels();
+	LevelManager::getInstance().loadProgress();
 
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Archeo-Gram");
 	WindowManager::getInstance().initialize(&window);
