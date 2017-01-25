@@ -7,6 +7,7 @@
 #include "UIButton.h"
 #include "UILabel.h"
 #include "UISlider.h"
+#include "LevelManager.h"
 
 class SettingsState : public State
 {

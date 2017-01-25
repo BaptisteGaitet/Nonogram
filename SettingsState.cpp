@@ -117,6 +117,8 @@ void SettingsState::update()
 			btnYes->setEnabled(false);
 			btnNo->setEnabled(false);
 			warning = false;
+			LevelManager::getInstance().resetProgress();
+			LevelManager::getInstance().loadProgress();
 		}
 		else if (btnNo->getClic())
 		{
