@@ -201,6 +201,7 @@ void GameState::update()
 				else
 				{
 					level->setBeaten(true);
+					LevelManager::getInstance().saveProgress();
 					lblWarning->setString("Solved !");
 					lblWarning->setEnabled(true);
 					imgWarning->setEnabled(true);
