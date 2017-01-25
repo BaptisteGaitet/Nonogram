@@ -3,10 +3,13 @@
 
 #include "Level.h"
 #include <vector>
+#include <fstream>
 
 class LevelManager
 {
 private:
+	const std::string LEVELS_FILE = "nonograms.txt";
+
 	LevelManager();
 	LevelManager(LevelManager &const);
 	void operator=(LevelManager &const);
@@ -22,6 +25,8 @@ public:
 	bool hasLevel(int _index);
 	void setSelectedLevel(int _index);
 	int getSelectedLevel();
+
+	void loadLevels();
 
 	~LevelManager();
 };

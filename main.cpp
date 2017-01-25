@@ -13,41 +13,8 @@
 int main()
 {
 	srand(time(NULL));
-	// TEST //
-	bool tabShovel[25] = {
-		false, true, true, true, false,
-		false, true, true, true, false,
-		false, false, true, false, false,
-		false, false, true, false, false,
-		false, false, true, false, false
-	};
-
-	Nonogram* nonoShovel = new Nonogram(5, 5, tabShovel);
-	LevelManager::getInstance().addLevel(new Level("shovelSketch.png", "Your own shovel, your should\nbe a little more carefull with\nyour tools.", nonoShovel, false));
-
-	bool tabRock[25] = {
-		false, false, false, false, false,
-		false, true, true, false, false,
-		true, true, true, true, false,
-		true, true, true, true, true,
-		false, true, true, true, false
-	};
-
-	Nonogram* nonoRock = new Nonogram(5, 5, tabRock);
-	LevelManager::getInstance().addLevel(new Level("rockSketch.png", "This is just a rock, you could\ndo better.", nonoRock, false));
-
-	bool tabBone[25] = {
-		false, false, false, false, false,
-		true, false, false, false, true,
-		false, true, true, true, false,
-		true, false, false, false, true,
-		false, false, false, false, false
-	};
-
-	Nonogram* nonoBone = new Nonogram(5, 5, tabBone);
-	LevelManager::getInstance().addLevel(new Level("boneSketch.png", "Well... It's a bone, Good job,\nI Guess.", nonoBone, false));
-
-	//////////
+	
+	LevelManager::getInstance().loadLevels();
 
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Picr-Os");
 	WindowManager::getInstance().initialize(&window);
