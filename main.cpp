@@ -16,7 +16,7 @@ int main()
 	
 	LevelManager::getInstance().loadLevels();
 
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Picr-Os");
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Archeo-Gram");
 	WindowManager::getInstance().initialize(&window);
 	window.setMouseCursorVisible(false);
 

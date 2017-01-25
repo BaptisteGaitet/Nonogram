@@ -106,14 +106,14 @@ void WindowManager::setFullscreen(bool _val)
 	{
 		sf::Vector2u size = sf::Vector2u(videoModes.at(0).width, videoModes.at(0).height);
 		updateDisplayArea(size, sf::Vector2i(0, 0));
-		window->create(videoModes.at(0), "Picr-Os", sf::Style::Fullscreen);
+		window->create(videoModes.at(0), "Archeo-Gram", sf::Style::Fullscreen);
 		window->setFramerateLimit(60);
 		fullscreen = true;
 		window->setMouseCursorVisible(false);
 	}
 	else if (!_val && fullscreen)
 	{
-		window->create(sf::VideoMode(800, 600), "Picr-Os");
+		window->create(sf::VideoMode(800, 600), "Archeo-Gram");
 		updateDisplayArea(sf::Vector2u(800,600), sf::Vector2i(0,0));
 		window->setFramerateLimit(60);
 		fullscreen = false;
