@@ -103,6 +103,17 @@ void SettingsState::update()
 			btnYes->setEnabled(true);
 			btnNo->setEnabled(true);
 		}
+
+		UISlider* sldSfx = (UISlider*)uiholder.getUIElement("sld_sfx");
+		UISlider* sldMusic = (UISlider*)uiholder.getUIElement("sld_music");
+		if (sldSfx->hasChanged())
+		{
+			AudioManager::getInstance().setSoundVolume(sldSfx->getAmount());
+		}
+		if (sldMusic->hasChanged())
+		{
+			AudioManager::getInstance().setMusicVolume(sldMusic->getAmount());
+		}
 	}
 	else
 	{

@@ -8,6 +8,7 @@
 #include "UILabel.h"
 #include "UISlider.h"
 #include "LevelManager.h"
+#include "AudioManager.h"
 
 class SettingsState : public State
 {
