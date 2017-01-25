@@ -2,6 +2,7 @@
 
 GameState::GameState() : State("game")
 {
+	warning = false;
 	focus = false;
 	timer = LEVEL_TIME;
 	victoryTimer = VICTORY_TIME;

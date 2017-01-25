@@ -2,6 +2,8 @@
 
 UIHolder::UIHolder()
 {
+	drawingQueue = std::vector<UIElement*>();
+	elements = std::map<std::string, UIElement*>();
 }
 
 void UIHolder::update()

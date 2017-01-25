@@ -9,9 +9,9 @@ class UILabel :
 {
 private:
 	sf::Text text;
-	void snapTextToShape();
 	bool enabled;
 
+	void snapTextToShape();
 	int getLinesNumber();
 public:
 	UILabel(std::string _id, sf::Vector2f position, float characterSize, int _drawOrder, std::string _content);

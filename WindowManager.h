@@ -23,6 +23,7 @@ private:
 	bool requestExit;
 	bool fullscreen;
 	int shakeTimer;
+
 public:
 	static WindowManager& getInstance();
 

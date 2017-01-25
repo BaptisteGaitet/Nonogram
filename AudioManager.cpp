@@ -3,6 +3,9 @@
 
 AudioManager::AudioManager()
 {
+	buffers = std::map < std::string, sf::SoundBuffer >();
+	sounds = std::map < std::string, sf::Sound >();
+	musics = std::map < std::string, sf::Music*>();
 }
 
 AudioManager& AudioManager::getInstance()

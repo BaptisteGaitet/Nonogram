@@ -2,10 +2,14 @@
 
 UILevelButton::UILevelButton(std::string _id, sf::IntRect _bounds, int _drawOrder) : UIElement(_id, _bounds, _drawOrder)
 {
+	text = sf::Text();
+	medalShape = sf::RectangleShape();
 	selected = false;
 	enabled = true;
 	state = idle;
 	levelNumber = 0;
+	beaten = false;
+	clic = false;
 
 	TextureManager::getInstance().addTexture("btnLevel.png");
 	shape.setTexture(TextureManager::getInstance().getTexture("btnLevel.png"));

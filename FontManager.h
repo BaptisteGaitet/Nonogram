@@ -14,6 +14,7 @@ private:
 	void operator=(FontManager const&);
 
 	std::map<std::string, sf::Font> fonts;
+
 	bool hasFont(std::string _id);
 public:
 	static FontManager& getInstance();

@@ -3,6 +3,7 @@
 
 FontManager::FontManager()
 {
+	fonts = std::map<std::string, sf::Font>();
 }
 
 FontManager& FontManager::getInstance()

@@ -4,6 +4,13 @@
 WindowManager::WindowManager()
 {
 	requestExit = false;
+	window = nullptr;
+	videoModes = std::vector<sf::VideoMode>();
+	displayArea = sf::IntRect();
+	stretchRatio = 0;
+	screenSize = sf::Vector2u();
+	fullscreen = false;
+	shakeTimer = 0;
 }
 
 WindowManager& WindowManager::getInstance()

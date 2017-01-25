@@ -3,6 +3,11 @@
 
 MouseManager::MouseManager()
 {
+	currentLeftDown = false;
+	lastLeftDown = false;
+	currentRightDown = false;
+	lastRightDown = false;
+	window = nullptr;
 }
 
 MouseManager& MouseManager::getInstance()

@@ -6,6 +6,7 @@ UIElement::UIElement(std::string _id, sf::IntRect _bounds, int _drawOrder)
 	id = _id;
 	bounds = _bounds;
 	drawOrder = _drawOrder;
+	shape = sf::RectangleShape();
 }
 
 std::string UIElement::getId()

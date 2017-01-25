@@ -5,6 +5,7 @@ State::State(std::string _id)
 {
 	id = _id;
 	nextStateId = "";
+	uiholder = UIHolder();
 }
 
 // Returns the state to switch for (empty string if no switching requested)

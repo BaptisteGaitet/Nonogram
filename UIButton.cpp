@@ -7,6 +7,8 @@ UIButton::UIButton(std::string _id, sf::IntRect _bounds, int _drawOrder, std::st
 	shape.setTexture(TextureManager::getInstance().getTexture(_path));
 	shape.setTextureRect(sf::IntRect(0, 0, TextureManager::getInstance().getTexture(_path)->getSize().x / 3, TextureManager::getInstance().getTexture(_path)->getSize().y));
 	clic = false;
+	state = idle;
+	enabled = true;
 }
 
 void UIButton::update()

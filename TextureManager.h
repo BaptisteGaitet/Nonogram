@@ -14,6 +14,7 @@ private:
 	void operator=(TextureManager const&);
 
 	std::map<std::string, sf::Texture> textures;
+
 	bool hasTexture(std::string _id);
 public:
 	static TextureManager& getInstance();

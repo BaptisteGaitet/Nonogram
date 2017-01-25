@@ -4,6 +4,7 @@
 UILabel::UILabel(std::string _id, sf::Vector2f _position, float _characterSize, int _drawOrder, std::string _content) : UIElement(_id, sf::IntRect(), _drawOrder)
 {
 	enabled = true;
+	text = sf::Text();
 	FontManager::getInstance().addFont("shty.ttf");
 	text.setFont(*FontManager::getInstance().getFont("shty.ttf"));
 	text.setPosition(_position);

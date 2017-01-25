@@ -4,6 +4,7 @@ StateManager::StateManager()
 {
 	// Initialize current state to an empty string
 	currentStateId = "";
+	states = std::map<std::string, State*>();
 }
 
 // Updates current state if valid

@@ -4,6 +4,7 @@
 LevelManager::LevelManager()
 {
 	selectedLevel = 0;
+	levels = std::vector<Level*>();
 }
 
 LevelManager& LevelManager::getInstance()
