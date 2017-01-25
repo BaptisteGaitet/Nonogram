@@ -8,10 +8,15 @@ UISlider::UISlider(std::string _id, sf::IntRect _bounds, int _drawOrder) : UIEle
 	knobShape.setTexture(TextureManager::getInstance().getTexture("knob.png"));
 	selected = false;
 	amount = 100;
+	lastAmount = 100;
+	changed = false;
 }
 
 void UISlider::update()
 {
+	lastAmount = amount;
+	changed = false;
+
 	sf::IntRect knobRect;
 	knobRect.left = knobShape.getPosition().x;
 	knobRect.top = knobShape.getPosition().y;
@@ -50,6 +55,11 @@ void UISlider::update()
 	{
 		knobShape.setPosition(shape.getPosition().x + ((float)((float)amount / 100) * shape.getSize().x - (knobShape.getSize().x/2)), shape.getPosition().y);
 	}
+
+	if (amount != lastAmount)
+	{
+		changed = true;
+	}
 }
 
 void UISlider::draw(sf::RenderWindow* window)
@@ -70,6 +80,11 @@ void UISlider::setAmount(int _amount)
 int UISlider::getAmount()
 {
 	return amount;
+}
+
+bool UISlider::hasChanged()
+{
+	return changed;
 }
 
 UISlider::~UISlider()

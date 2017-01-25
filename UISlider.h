@@ -11,7 +11,9 @@ class UISlider :
 private:
 	sf::RectangleShape knobShape;
 	int amount;
+	int lastAmount;
 	bool selected;
+	bool changed;
 public:
 	UISlider(std::string _id, sf::IntRect _bounds, int _drawOrder);
 
@@ -19,6 +21,7 @@ public:
 	void draw(sf::RenderWindow* window);
 	int getAmount();
 	void setAmount(int _amount);
+	bool hasChanged();
 
 	~UISlider();
 };
