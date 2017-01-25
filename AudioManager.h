@@ -24,9 +24,11 @@ public:
 	void addSound(std::string _id);
 	void playSound(std::string _id);
 	void stopSound(std::string _id);
+	void setSoundVolume(int _volume);
 	void addMusic(std::string _id);
 	void playMusic(std::string _id);
 	void stopMusic(std::string _id);
+	void setMusicVolume(int _volume);
 
 	~AudioManager();
 };

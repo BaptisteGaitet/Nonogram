@@ -122,6 +122,36 @@ void AudioManager::stopMusic(std::string _id)
 	}
 }
 
+void AudioManager::setMusicVolume(int _volume)
+{
+	int volume = _volume;
+
+	if (volume > 100)
+		volume = 100;
+	else if (volume < 0)
+		volume = 0;
+
+	for (std::map<std::string, sf::Music*>::iterator it = musics.begin(); it!= musics.end(); ++it)
+	{
+		it->second->setVolume(_volume);
+	}
+}
+
+void AudioManager::setSoundVolume(int _volume)
+{
+	int volume = _volume;
+
+	if (volume > 100)
+		volume = 100;
+	else if (volume < 0)
+		volume = 0;
+
+	for (std::map<std::string, sf::Sound>::iterator it = sounds.begin(); it != sounds.end(); ++it)
+	{
+		it->second.setVolume(_volume);
+	}
+}
+
 AudioManager::~AudioManager()
 {
 }
