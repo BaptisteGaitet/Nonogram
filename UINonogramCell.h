@@ -4,6 +4,7 @@
 #include "UIElement.h"
 #include "TextureManager.h"
 #include "MouseManager.h"
+#include "AudioManager.h"
 
 class UINonogramCell :
 	public UIElement
