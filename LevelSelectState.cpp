@@ -55,6 +55,7 @@ void LevelSelectState::update()
 	if (!focus)
 	{
 		focus = true;
+		updateLevelButtons();
 		updateLevelInfo();
 	}
 
@@ -83,6 +84,7 @@ void LevelSelectState::update()
 			selectedLevel = btn->getLevelNumber();
 			LevelManager::getInstance().setSelectedLevel(btn->getLevelNumber());
 			btn->setSelected(true);
+
 			updateLevelInfo();
 		}
 		else if (btn->getLevelNumber() != selectedLevel)
@@ -150,6 +152,7 @@ void LevelSelectState::updateLevelButtons()
 		std::string btnId = "lvlButton" + std::to_string(i);
 		UILevelButton* btn = (UILevelButton*)uiholder.getUIElement(btnId);
 		btn->setLevelNumber(currentPage * LEVELS_PER_PAGE + i);
+
 		if (!LevelManager::getInstance().hasLevel(btn->getLevelNumber()))
 		{
 			btn->setEnabled(false);
@@ -157,6 +160,14 @@ void LevelSelectState::updateLevelButtons()
 		else
 		{
 			btn->setEnabled(true);
+			if (LevelManager::getInstance().getLevel(btn->getLevelNumber())->getBeaten())
+			{
+				btn->setBeaten(true);
+			}
+			else
+			{
+				btn->setBeaten(false);
+			}
 		}
 	}
 }

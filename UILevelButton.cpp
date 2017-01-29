@@ -15,6 +15,10 @@ UILevelButton::UILevelButton(std::string _id, sf::IntRect _bounds, int _drawOrde
 	shape.setTexture(TextureManager::getInstance().getTexture("img/btnLevel.png"));
 	shape.setTextureRect(sf::IntRect(0, 0, 32,32));
 
+	TextureManager::getInstance().addTexture("img/solved.png");
+	medalShape.setTexture(TextureManager::getInstance().getTexture("img/solved.png"));
+	medalShape.setTextureRect(sf::IntRect(0, 0, 16, 16));
+
 	FontManager::getInstance().addFont("fnt/shty.ttf");
 	text.setFont(*FontManager::getInstance().getFont("fnt/shty.ttf"));
 	text.setString(std::to_string(levelNumber));
@@ -76,10 +80,17 @@ void UILevelButton::draw(sf::RenderWindow* window)
 	if (enabled)
 	{
 		snapToDisplayArea();
+		medalShape.setPosition(sf::Vector2f(shape.getPosition().x + (shape.getSize().x / 2), shape.getPosition().y + (shape.getSize().y /2)));
+		medalShape.setSize(sf::Vector2f(shape.getSize().x/2, shape.getSize().y/2));
 		text.setPosition(shape.getPosition().x + 10, shape.getPosition().y - 4);
 
 		window->draw(shape);
 		window->draw(text);
+
+		if (beaten)
+		{
+			window->draw(medalShape);
+		}
 	}
 }
 
@@ -117,6 +128,11 @@ bool UILevelButton::getSelected()
 void UILevelButton::setSelected(bool _selected)
 {
 	selected = _selected;
+}
+
+void UILevelButton::setBeaten(bool _val)
+{
+	beaten = _val;
 }
 
 UILevelButton::~UILevelButton()

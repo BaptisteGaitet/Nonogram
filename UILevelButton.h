@@ -32,6 +32,7 @@ public:
 	void setEnabled(bool _enabled);
 	bool getSelected();
 	void setSelected(bool _selected);
+	void setBeaten(bool _val);
 
 	~UILevelButton();
 };
