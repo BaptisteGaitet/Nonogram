@@ -8,8 +8,8 @@
 class LevelManager
 {
 private:
-	const std::string LEVELS_FILE = "nonograms.txt";
-	const std::string SAVE_FILE = "save.txt";
+	const std::string LEVELS_FILE = "dat/nonograms.txt";
+	const std::string SAVE_FILE = "dat/save.txt";
 
 	LevelManager();
 	LevelManager(LevelManager &const);

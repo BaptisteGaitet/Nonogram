@@ -3,10 +3,10 @@
 UISlider::UISlider(std::string _id, sf::IntRect _bounds, int _drawOrder) : UIElement(_id, _bounds, _drawOrder)
 {
 	knobShape = sf::RectangleShape();
-	TextureManager::getInstance().addTexture("slide.png");
-	TextureManager::getInstance().addTexture("knob.png");
-	shape.setTexture(TextureManager::getInstance().getTexture("slide.png"));
-	knobShape.setTexture(TextureManager::getInstance().getTexture("knob.png"));
+	TextureManager::getInstance().addTexture("img/slide.png");
+	TextureManager::getInstance().addTexture("img/knob.png");
+	shape.setTexture(TextureManager::getInstance().getTexture("img/slide.png"));
+	knobShape.setTexture(TextureManager::getInstance().getTexture("img/knob.png"));
 	selected = false;
 	amount = 100;
 	lastAmount = 100;

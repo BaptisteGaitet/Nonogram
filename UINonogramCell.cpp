@@ -6,9 +6,9 @@ UINonogramCell::UINonogramCell(std::string _id, sf::IntRect _bounds, int _drawOr
 	state = grassIdle;
 	mistake = false;
 	filled = false;
-	TextureManager::getInstance().addTexture("cell.png");
-	shape.setTexture(TextureManager::getInstance().getTexture("cell.png"));
-	shape.setTextureRect(sf::IntRect(0, 0, TextureManager::getInstance().getTexture("cell.png")->getSize().x / 9, TextureManager::getInstance().getTexture("cell.png")->getSize().y));
+	TextureManager::getInstance().addTexture("img/cell.png");
+	shape.setTexture(TextureManager::getInstance().getTexture("img/cell.png"));
+	shape.setTextureRect(sf::IntRect(0, 0, TextureManager::getInstance().getTexture("img/cell.png")->getSize().x / 9, TextureManager::getInstance().getTexture("img/cell.png")->getSize().y));
 }
 
 void UINonogramCell::update()

@@ -34,9 +34,9 @@ int main()
 	stateManager.addState(gameState);
 	stateManager.setCurrentStateId(titleState->getId());
 
-	TextureManager::getInstance().addTexture("cursor.png");
+	TextureManager::getInstance().addTexture("img/cursor.png");
 	sf::RectangleShape cursor = sf::RectangleShape(sf::Vector2f(32,32));
-	cursor.setTexture(TextureManager::getInstance().getTexture("cursor.png"));
+	cursor.setTexture(TextureManager::getInstance().getTexture("img/cursor.png"));
 	cursor.setTextureRect(sf::IntRect(0, 0, 32, 32));
 
 	while (window.isOpen())

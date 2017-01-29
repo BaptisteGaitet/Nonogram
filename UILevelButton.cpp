@@ -11,12 +11,12 @@ UILevelButton::UILevelButton(std::string _id, sf::IntRect _bounds, int _drawOrde
 	beaten = false;
 	clic = false;
 
-	TextureManager::getInstance().addTexture("btnLevel.png");
-	shape.setTexture(TextureManager::getInstance().getTexture("btnLevel.png"));
+	TextureManager::getInstance().addTexture("img/btnLevel.png");
+	shape.setTexture(TextureManager::getInstance().getTexture("img/btnLevel.png"));
 	shape.setTextureRect(sf::IntRect(0, 0, 32,32));
 
-	FontManager::getInstance().addFont("shty.ttf");
-	text.setFont(*FontManager::getInstance().getFont("shty.ttf"));
+	FontManager::getInstance().addFont("fnt/shty.ttf");
+	text.setFont(*FontManager::getInstance().getFont("fnt/shty.ttf"));
 	text.setString(std::to_string(levelNumber));
 	text.setColor(sf::Color(50, 50, 50));
 	text.setCharacterSize(40);

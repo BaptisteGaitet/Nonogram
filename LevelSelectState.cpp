@@ -25,24 +25,24 @@ LevelSelectState::LevelSelectState() : State("levelselect")
 		}
 	}
 
-	UIBackground* bg = new UIBackground("background", 0, "bg1.png");
+	UIBackground* bg = new UIBackground("background", 0, "img/bg1.png");
 	uiholder.addUIElement(bg);
-	UIImage* img = new UIImage("image", sf::IntRect(0, 0, 800, 600), 1, "book.png");
+	UIImage* img = new UIImage("image", sf::IntRect(0, 0, 800, 600), 1, "img/book.png");
 	uiholder.addUIElement(img);
-	UIButton* btnBack = new UIButton("btn_back", sf::IntRect(100, 500, 64, 64), 2, "btn4.png");
+	UIButton* btnBack = new UIButton("btn_back", sf::IntRect(100, 500, 64, 64), 2, "img/btn4.png");
 	uiholder.addUIElement(btnBack);
-	UIButton* btnLeft = new UIButton("btn_left", sf::IntRect(150, 400, 64, 64), 2, "btnArrowLeft.png");
+	UIButton* btnLeft = new UIButton("btn_left", sf::IntRect(150, 400, 64, 64), 2, "img/btnArrowLeft.png");
 	uiholder.addUIElement(btnLeft);
-	UIButton* btnRight = new UIButton("btn_right", sf::IntRect(250, 400, 64, 64), 2, "btnArrowRight.png");
+	UIButton* btnRight = new UIButton("btn_right", sf::IntRect(250, 400, 64, 64), 2, "img/btnArrowRight.png");
 	uiholder.addUIElement(btnRight);
 
-	UIImage* imgFrame= new UIImage("img_frame", sf::IntRect(400, 60, 300, 300), 3, "sketchFrame.png");
+	UIImage* imgFrame= new UIImage("img_frame", sf::IntRect(400, 60, 300, 300), 3, "img/sketchFrame.png");
 	uiholder.addUIElement(imgFrame);
-	UIImage* imgSketch = new UIImage("img_sketch", sf::IntRect(400, 60, 300, 300), 2, "unknownSketch.png");
+	UIImage* imgSketch = new UIImage("img_sketch", sf::IntRect(400, 60, 300, 300), 2, "img/unknownSketch.png");
 	uiholder.addUIElement(imgSketch);
 	UILabel* lblDescription = new UILabel("lbl_description", sf::Vector2f(420, 360), 24, 2, "Unknown.");
 	uiholder.addUIElement(lblDescription);
-	UIButton* btnSolve = new UIButton("btn_solve", sf::IntRect(550, 500, 128, 64), 2, "btnSolve.png");
+	UIButton* btnSolve = new UIButton("btn_solve", sf::IntRect(550, 500, 128, 64), 2, "img/btnSolve.png");
 	uiholder.addUIElement(btnSolve);
 	//////////
 
@@ -124,7 +124,7 @@ void LevelSelectState::updateLevelInfo()
 	else
 	{
 		UIImage* img = (UIImage*)uiholder.getUIElement("img_sketch");
-		img->changeImage("unknownSketch.png");
+		img->changeImage("img/unknownSketch.png");
 		UILabel* lbl = (UILabel*)uiholder.getUIElement("lbl_description");
 		lbl->setString("Unknown.");
 	}

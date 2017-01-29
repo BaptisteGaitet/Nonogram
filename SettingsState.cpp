@@ -6,14 +6,14 @@ SettingsState::SettingsState() : State("settings")
 	warning = false;
 	// TEST //
 
-	UIBackground* bg = new UIBackground("background", 0, "bg5.png");
+	UIBackground* bg = new UIBackground("background", 0, "img/bg5.png");
 	uiholder.addUIElement(bg);
-	UIImage* img = new UIImage("image", sf::IntRect(0, 0, 800, 600), 1, "book.png");
+	UIImage* img = new UIImage("image", sf::IntRect(0, 0, 800, 600), 1, "img/book.png");
 	uiholder.addUIElement(img);
-	UIImage* sketch = new UIImage("sketch", sf::IntRect(400, 50, 300, 500), 1, "settingsSketch.png");
+	UIImage* sketch = new UIImage("sketch", sf::IntRect(400, 50, 300, 500), 1, "img/settingsSketch.png");
 	uiholder.addUIElement(sketch);
 
-	UIButton* btnBack = new UIButton("btn_back", sf::IntRect(100, 500, 64, 64), 2, "btn4.png");
+	UIButton* btnBack = new UIButton("btn_back", sf::IntRect(100, 500, 64, 64), 2, "img/btn4.png");
 	uiholder.addUIElement(btnBack);
 
 	UILabel* lblMusic = new UILabel("lbl_music", sf::Vector2f(120, 70), 30, 2, "Music volume");
@@ -28,26 +28,26 @@ SettingsState::SettingsState() : State("settings")
 
 	UILabel* lblFull= new UILabel("lbl_full", sf::Vector2f(120, 270), 30, 2, "Fullscreen");
 	uiholder.addUIElement(lblFull);
-	UIButton* btnFullOn = new UIButton("btn_full_on", sf::IntRect(270, 272, 64, 64), 2, "btnFullOn.png");
+	UIButton* btnFullOn = new UIButton("btn_full_on", sf::IntRect(270, 272, 64, 64), 2, "img/btnFullOn.png");
 	uiholder.addUIElement(btnFullOn);
-	UIButton* btnFullOff = new UIButton("btn_full_off", sf::IntRect(270, 272, 64, 64), 2, "btnFullOff.png");
+	UIButton* btnFullOff = new UIButton("btn_full_off", sf::IntRect(270, 272, 64, 64), 2, "img/btnFullOff.png");
 	uiholder.addUIElement(btnFullOff);
 
 	UILabel* lblReset = new UILabel("lbl_reset", sf::Vector2f(120, 390), 30, 2, "Reset save");
 	uiholder.addUIElement(lblReset);
-	UIButton* btnBomb= new UIButton("btn_bomb", sf::IntRect(270, 392, 64, 64), 2, "btnBomb.png");
+	UIButton* btnBomb= new UIButton("btn_bomb", sf::IntRect(270, 392, 64, 64), 2, "img/btnBomb.png");
 	uiholder.addUIElement(btnBomb);
 
-	UIImage* imgWarning = new UIImage("img_warning", sf::IntRect(250, 100, 300, 400), 3, "sheet.png");
+	UIImage* imgWarning = new UIImage("img_warning", sf::IntRect(250, 100, 300, 400), 3, "img/sheet.png");
 	imgWarning->setEnabled(false);
 	uiholder.addUIElement(imgWarning);
 	UILabel* lblWarning = new UILabel("lbl_warning", sf::Vector2f(280, 200), 40, 4, "Are you sure ?");
 	lblWarning->setEnabled(false);
 	uiholder.addUIElement(lblWarning);
-	UIButton* btnYes = new UIButton("btn_yes", sf::IntRect(290, 350, 64, 64), 4, "btnYes.png");
+	UIButton* btnYes = new UIButton("btn_yes", sf::IntRect(290, 350, 64, 64), 4, "img/btnYes.png");
 	btnYes->setEnabled(false);
 	uiholder.addUIElement(btnYes);
-	UIButton* btnNo = new UIButton("btn_no", sf::IntRect(450, 350, 64, 64), 4, "btnNo.png");
+	UIButton* btnNo = new UIButton("btn_no", sf::IntRect(450, 350, 64, 64), 4, "img/btnNo.png");
 	btnNo->setEnabled(false);
 	uiholder.addUIElement(btnNo);
 

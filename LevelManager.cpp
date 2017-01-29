@@ -83,7 +83,7 @@ void LevelManager::loadLevels()
 			// Register content
 			rows = atoi(sections.at(0).c_str());
 			columns = atoi(sections.at(1).c_str());
-			path = sections.at(2);
+			path = "img/" + sections.at(2);
 			description = sections.at(3);
 
 			// Get nonogram

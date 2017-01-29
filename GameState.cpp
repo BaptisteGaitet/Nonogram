@@ -12,32 +12,32 @@ GameState::GameState() : State("game")
 	failed = false;
 	cellChangeTimer = CELL_CHANGE_TIME;
 
-	UIBackground* bg = new UIBackground("background", 0, "bg2.png");
+	UIBackground* bg = new UIBackground("background", 0, "img/bg2.png");
 	uiholder.addUIElement(bg);
-	UIImage* imgTablet = new UIImage("img_tablet", sf::IntRect(0, 0, 800, 600), 1, "tablet.png");
+	UIImage* imgTablet = new UIImage("img_tablet", sf::IntRect(0, 0, 800, 600), 1, "img/tablet.png");
 	uiholder.addUIElement(imgTablet);
 	//UIImage* imgTimer = new UIImage("img_timer", sf::IntRect(10, 10, 256, 128), 1, "timerFrame.png");
 	//uiholder.addUIElement(imgTimer);
-	UIImage* imgBack = new UIImage("img_back", sf::IntRect(10, 500, 128, 128), 1, "backButtonFrame.png");
+	UIImage* imgBack = new UIImage("img_back", sf::IntRect(10, 500, 128, 128), 1, "img/backButtonFrame.png");
 	uiholder.addUIElement(imgBack);
 	UILabel* lblTimer = new UILabel("lbl_timer", sf::Vector2f(200, 150), 30, 2, "29:29");
 	uiholder.addUIElement(lblTimer);
-	UIButton* btnBack = new UIButton("btn_back", sf::IntRect(40, 520, 64, 64), 2, "btn4.png");
+	UIButton* btnBack = new UIButton("btn_back", sf::IntRect(40, 520, 64, 64), 2, "img/btn4.png");
 	uiholder.addUIElement(btnBack);
 
-	UIImage* imgWarning = new UIImage("img_warning", sf::IntRect(250, 100, 300, 400), 3, "sheet.png");
+	UIImage* imgWarning = new UIImage("img_warning", sf::IntRect(250, 100, 300, 400), 3, "img/sheet.png");
 	imgWarning->setEnabled(false);
 	uiholder.addUIElement(imgWarning);
 	UILabel* lblWarning = new UILabel("lbl_warning", sf::Vector2f(280, 200), 40, 4, "Are you sure ?");
 	lblWarning->setEnabled(false);
 	uiholder.addUIElement(lblWarning);
-	UIButton* btnYes = new UIButton("btn_yes", sf::IntRect(290, 350, 64, 64), 4, "btnYes.png");
+	UIButton* btnYes = new UIButton("btn_yes", sf::IntRect(290, 350, 64, 64), 4, "img/btnYes.png");
 	btnYes->setEnabled(false);
 	uiholder.addUIElement(btnYes);
-	UIButton* btnNo = new UIButton("btn_no", sf::IntRect(450, 350, 64, 64), 4, "btnNo.png");
+	UIButton* btnNo = new UIButton("btn_no", sf::IntRect(450, 350, 64, 64), 4, "img/btnNo.png");
 	btnNo->setEnabled(false);
 	uiholder.addUIElement(btnNo);
-	UIButton* btnEndBack = new UIButton("btn_end_back", sf::IntRect(450, 350, 64, 64), 4, "btn4.png");
+	UIButton* btnEndBack = new UIButton("btn_end_back", sf::IntRect(450, 350, 64, 64), 4, "img/btn4.png");
 	btnEndBack->setEnabled(false);
 	uiholder.addUIElement(btnEndBack);
 
