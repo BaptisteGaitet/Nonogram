@@ -20,6 +20,9 @@ UILevelButton::UILevelButton(std::string _id, sf::IntRect _bounds, int _drawOrde
 	text.setString(std::to_string(levelNumber));
 	text.setColor(sf::Color(50, 50, 50));
 	text.setCharacterSize(40);
+
+	AudioManager::getInstance().addSound("snd/clic.ogg");
+
 }
 
 void UILevelButton::update()
@@ -40,6 +43,7 @@ void UILevelButton::update()
 				clic = true;
 				selected = true;
 				state = idle;
+				AudioManager::getInstance().playSound("snd/clic.ogg");
 			}
 			else if (!selected)
 			{

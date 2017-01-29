@@ -9,6 +9,7 @@
 #include "Level.h"
 #include "LevelManager.h"
 #include "GameState.h"
+#include "AudioManager.h"
 
 int main()
 {
@@ -38,6 +39,10 @@ int main()
 	sf::RectangleShape cursor = sf::RectangleShape(sf::Vector2f(32,32));
 	cursor.setTexture(TextureManager::getInstance().getTexture("img/cursor.png"));
 	cursor.setTextureRect(sf::IntRect(0, 0, 32, 32));
+
+	AudioManager::getInstance().addMusic("msc/ArcheoGram-Title.ogg");
+	AudioManager::getInstance().setMusicLoop("msc/ArcheoGram-Title.ogg", true);
+	AudioManager::getInstance().playMusic("msc/ArcheoGram-Title.ogg");
 
 	while (window.isOpen())
 	{

@@ -41,7 +41,11 @@ GameState::GameState() : State("game")
 	btnEndBack->setEnabled(false);
 	uiholder.addUIElement(btnEndBack);
 
-	uiholder.addUIElement(btnNo);
+	//uiholder.addUIElement(btnNo);
+	AudioManager::getInstance().addMusic("msc/ArcheoGram-Game.ogg");
+	AudioManager::getInstance().setMusicLoop("msc/ArcheoGram-Game.ogg", true);
+	AudioManager::getInstance().addMusic("msc/ArcheoGram-Title.ogg");
+	AudioManager::getInstance().setMusicLoop("msc/ArcheoGram-Title.ogg", true);
 
 	initCells();
 }
@@ -69,6 +73,8 @@ void GameState::update()
 		solved = false;
 		failed = false;
 		warning = false;
+		AudioManager::getInstance().stopMusic("msc/ArcheoGram-Title.ogg");
+		AudioManager::getInstance().playMusic("msc/ArcheoGram-Game.ogg");
 	}
 
 	if (!warning  && !solved && !failed)
@@ -149,6 +155,8 @@ void GameState::update()
 			btnNo->setEnabled(false);
 			warning = false;
 			setNextStateId("levelselect");
+			AudioManager::getInstance().stopMusic("msc/ArcheoGram-Game.ogg");
+			AudioManager::getInstance().playMusic("msc/ArcheoGram-Title.ogg");
 			focus = false;
 		}
 		else if (btnNo->getClic())
@@ -168,6 +176,8 @@ void GameState::update()
 			lblWarning->setEnabled(false);
 			btnEndBack->setEnabled(false);
 			setNextStateId("levelselect");
+			AudioManager::getInstance().playMusic("msc/ArcheoGram-Title.ogg");
+			AudioManager::getInstance().stopMusic("msc/ArcheoGram-Game.ogg");
 			warning = false;
 			focus = false;
 		}

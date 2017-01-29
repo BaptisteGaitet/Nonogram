@@ -9,6 +9,7 @@ UIButton::UIButton(std::string _id, sf::IntRect _bounds, int _drawOrder, std::st
 	clic = false;
 	state = idle;
 	enabled = true;
+	AudioManager::getInstance().addSound("snd/clic.ogg");
 }
 
 void UIButton::update()
@@ -28,6 +29,7 @@ void UIButton::update()
 			{
 				clic = true;
 				state = idle;
+				AudioManager::getInstance().playSound("snd/clic.ogg");
 			}else
 			{
 				state = hovered;

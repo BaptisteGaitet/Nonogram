@@ -9,6 +9,7 @@
 #include "UINonogramCell.h"
 #include "Level.h"
 #include "LevelManager.h"
+#include "AudioManager.h"
 
 class GameState :
 	public State
