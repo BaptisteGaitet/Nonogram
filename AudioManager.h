@@ -29,6 +29,7 @@ public:
 	void playMusic(std::string _id);
 	void stopMusic(std::string _id);
 	void setMusicVolume(int _volume);
+	void setMusicLoop(std::string _id, bool _val);
 
 	~AudioManager();
 };

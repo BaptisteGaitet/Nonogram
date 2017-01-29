@@ -155,6 +155,14 @@ void AudioManager::setSoundVolume(int _volume)
 	}
 }
 
+void AudioManager::setMusicLoop(std::string _id, bool _val)
+{
+	if (hasMusic(_id))
+	{
+		musics.at(_id)->setLoop(_val);
+	}
+}
+
 AudioManager::~AudioManager()
 {
 }
