@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F5BDA3A3-70E5-453A-B586-FC65DCAC6EC6}</ProjectGuid>
     <RootNamespace>Picross</RootNamespace>
+    <ProjectName>ArcheoGram</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
