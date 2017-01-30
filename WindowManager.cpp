@@ -65,21 +65,22 @@ void WindowManager::updateDisplayArea(sf::Vector2u screensize, sf::Vector2i offs
 	if (screensize.x > screensize.y)
 	{
 		stretchRatio = (float)((float)screensize.y / (float)BASE_SCREEN_SIZE.y);
-		displayArea.width = BASE_SCREEN_SIZE.x * stretchRatio;
-		displayArea.height = BASE_SCREEN_SIZE.y * stretchRatio;
-		displayArea.left = (float)(screensize.x - displayArea.width) / 2 + offset.x;
+		displayArea.width = (float)BASE_SCREEN_SIZE.x * (float)stretchRatio;
+		displayArea.height = (float)BASE_SCREEN_SIZE.y * (float)stretchRatio;
+		displayArea.left = (float)((float)screensize.x - (float)displayArea.width) / 2 + offset.x;
 		displayArea.top = 0 + offset.y;
+		std::cout << "x > y" << "\n";
 	}
 	else
 	{
-		stretchRatio = (float)screensize.x / (float)BASE_SCREEN_SIZE.x;
+		stretchRatio = (float)((float)screensize.x / (float)BASE_SCREEN_SIZE.x);
 
-		displayArea.width = BASE_SCREEN_SIZE.x * stretchRatio;
-		displayArea.height = BASE_SCREEN_SIZE.y * stretchRatio;
+		displayArea.width = (float)BASE_SCREEN_SIZE.x * (float)stretchRatio;
+		displayArea.height = (float)BASE_SCREEN_SIZE.y * (float)stretchRatio;
 		displayArea.left = 0 + offset.x;
-		displayArea.top = (float)(screensize.y - displayArea.height) / 2 + offset.y;
+		displayArea.top = (float)((float)screensize.y - (float)displayArea.height) / 2 + offset.y;
+		std::cout << "x < y" << "\n";
 	}
-	
 }
 
 float WindowManager::getStretchRatio()
