@@ -12,6 +12,7 @@ UINonogramCell::UINonogramCell(std::string _id, sf::IntRect _bounds, int _drawOr
 
 	AudioManager::getInstance().addSound("snd/dig.ogg");
 	AudioManager::getInstance().addSound("snd/error.ogg");
+	AudioManager::getInstance().addSound("snd/flag.ogg");
 }
 
 void UINonogramCell::update()
@@ -58,6 +59,7 @@ void UINonogramCell::update()
 		if (MouseManager::getInstance().rightRelease())
 		{
 			state = flaggedIdle;
+			AudioManager::getInstance().playSound("snd/flag.ogg");
 		}
 	}
 	else if (state == flaggedIdle)
@@ -101,6 +103,7 @@ void UINonogramCell::update()
 		if (MouseManager::getInstance().rightRelease())
 		{
 			state = grassIdle;
+			AudioManager::getInstance().playSound("snd/flag.ogg");
 		}
 	}
 
