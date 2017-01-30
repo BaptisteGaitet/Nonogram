@@ -47,6 +47,9 @@ GameState::GameState() : State("game")
 	AudioManager::getInstance().addMusic("msc/ArcheoGram-Title.ogg");
 	AudioManager::getInstance().setMusicLoop("msc/ArcheoGram-Title.ogg", true);
 
+	AudioManager::getInstance().addSound("snd/win.ogg");
+	AudioManager::getInstance().addSound("snd/fail.ogg");
+
 	initCells();
 }
 
@@ -141,6 +144,8 @@ void GameState::update()
 			lblWarning->setEnabled(true);
 			imgWarning->setEnabled(true);
 			btnEndBack->setEnabled(true);
+			AudioManager::getInstance().stopMusic("msc/ArcheoGram-Game.ogg");
+			AudioManager::getInstance().playSound("snd/fail.ogg");
 
 		}
 		//////////////
@@ -199,6 +204,7 @@ void GameState::update()
 						{
 							cell->setBlackWhite(true);
 							changed = true;
+							AudioManager::getInstance().playSound("snd/flag.ogg");
 						}
 					}
 				}
@@ -218,6 +224,9 @@ void GameState::update()
 					imgWarning->setEnabled(true);
 					btnEndBack->setEnabled(true);
 					warning = true;
+
+					AudioManager::getInstance().stopMusic("msc/ArcheoGram-Game.ogg");
+					AudioManager::getInstance().playSound("snd/win.ogg");
 				}
 			}
 			cellChangeTimer = CELL_CHANGE_TIME;
